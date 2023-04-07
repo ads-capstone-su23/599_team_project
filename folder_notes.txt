@@ -1,13 +1,3 @@
 Folder Notes
 
-**General references to review
-https://pywavelets.readthedocs.io/en/latest/
-
-https://joss.theoj.org/papers/10.21105/joss.01237
-
-https://nicolasfauchereau.github.io/posts/wavelet-analysis-with-python/
-
-**Books to check out
-https://a.co/d/5lULGTB
-https://a.co/d/5anpNFa
-https://a.co/d/aFApfv6
+For videos, books, and websites, check out the folder_notes.txt file in ref_docs.
