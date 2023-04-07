@@ -1,22 +1,22 @@
 # Folder Notes
 
-***Websites
-https://pywavelets.readthedocs.io/en/latest/
-https://joss.theoj.org/papers/10.21105/joss.01237
-https://nicolasfauchereau.github.io/posts/wavelet-analysis-with-python/
+## Websites
+* https://pywavelets.readthedocs.io/en/latest/
+* https://joss.theoj.org/papers/10.21105/joss.01237
+* https://nicolasfauchereau.github.io/posts/wavelet-analysis-with-python/
 
-***Books
-https://github.com/CRCTransformers/deepdive-book
-https://a.co/d/5lULGTB
-https://a.co/d/5anpNFa
-https://a.co/d/aFApfv6
+## Books
+* https://github.com/CRCTransformers/deepdive-book
+* https://a.co/d/5lULGTB
+* https://a.co/d/5anpNFa
+* https://a.co/d/aFApfv6
 
-***Videos
-"Understanding Wavelets, Part 1: What Are Wavelets": https://youtu.be/QX1-xGVFqmw
-"The Wavelet Transform for Beginners": https://youtu.be/kuuUaqAjeoA
+## Videos
+* "Understanding Wavelets, Part 1: What Are Wavelets": https://youtu.be/QX1-xGVFqmw
+* "The Wavelet Transform for Beginners": https://youtu.be/kuuUaqAjeoA
 
-***chatGPT notes
-Wavelet transform is a powerful tool for analyzing signals and data in various domains, including images and videos. One way to use wavelet transform for predicting image or video data is by using it as a feature extraction method and then using a machine learning algorithm to predict future data points.
+## chatGPT notes
+Wavelet transform is a powerful tool for analyzing signals and data in various domains, including images and videos. One way to use wavelet transform for predicting image or video data is by using it as a feature extraction method and then using a machine learning algorithm to predict future data points.\
 
 Here are the general steps for using wavelet transform for prediction:
 1. Preprocess the image or video data to prepare it for analysis. This may involve resizing the data, converting it to grayscale, or normalizing the pixel values.
