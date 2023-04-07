@@ -16,7 +16,7 @@
 * "The Wavelet Transform for Beginners": https://youtu.be/kuuUaqAjeoA
 
 ## chatGPT notes
-Wavelet transform is a powerful tool for analyzing signals and data in various domains, including images and videos. One way to use wavelet transform for predicting image or video data is by using it as a feature extraction method and then using a machine learning algorithm to predict future data points.\
+Wavelet transform is a powerful tool for analyzing signals and data in various domains, including images and videos. One way to use wavelet transform for predicting image or video data is by using it as a feature extraction method and then using a machine learning algorithm to predict future data points.
 
 Here are the general steps for using wavelet transform for prediction:
 1. Preprocess the image or video data to prepare it for analysis. This may involve resizing the data, converting it to grayscale, or normalizing the pixel values.
