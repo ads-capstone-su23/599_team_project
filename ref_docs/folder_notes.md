@@ -4,12 +4,14 @@
 * https://pywavelets.readthedocs.io/en/latest/
 * https://joss.theoj.org/papers/10.21105/joss.01237
 * https://nicolasfauchereau.github.io/posts/wavelet-analysis-with-python/
+* https://www.section.io/engineering-education/image-preprocessing-in-python/
 
 ## Books
 * https://github.com/CRCTransformers/deepdive-book
 * https://a.co/d/5lULGTB
 * https://a.co/d/5anpNFa
 * https://a.co/d/aFApfv6
+* https://a.co/d/abeB1pT
 
 ## Videos
 * "Understanding Wavelets, Part 1: What Are Wavelets": https://youtu.be/QX1-xGVFqmw
