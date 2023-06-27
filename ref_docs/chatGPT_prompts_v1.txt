@@ -1,0 +1,29 @@
+Capstone cg promot
+Inbox
+
+Aaron Carr <acarr@sandiego.edu>
+12:15 AM (7 hours ago)
+to me
+
+Prompt 1: Create Dataframe of files
+I have 3 local folders ("\Programming\Python and R\ADS Markdown Files\ADS-599 Local\data\celeb-df-v2\Celeb-real", "\Programming\Python and R\ADS Markdown Files\ADS-599 Local\data\celeb-df-v2\Celeb-synthesis", "\Programming\Python and R\ADS Markdown Files\ADS-599 Local\data\celeb-df-v2\YouTube-real") that contain videos that I need to perform a series of tasks for in Python on a Windows machine:
+1. Create a pandas dataframe called “images” with columns for "main folder", “folder name”, “file name”.
+2. Print the shape of the dataframe.
+3. Display the first 11 records of the dataframe.
+
+Prompt 2: Ingest and process data
+I have a dataframe ("train_df") with the names of file paths, including the parent directory, folder name, and file name. Each record represents a video of variable length and size. Provide a python function to upload the videos using OpenCV and preprocess them to get them into a numpy array or dataframe that can be read by tensorflow or pytorch.
+1. Determine the number of frames the shortest and longest videos, as well as the median number of frames for all videos.
+2. Determine the height and width of largest and smallest images, as well as the median height and width for all videos.
+3. Use "train_df" to pass in individual videos and convert them to a dataframe of static image data, with batch dimension for each video.
+4. Process each image in the following manner:
+a. Set to a specified heigth and width (e.g., 120x120).
+b. Set a maximum number of frames (e.g., median achieved from step 1)
+c. Padding those videos that are shorter than the maximum.
+d. Convert all images to gray scale.
+e. Extract features using wavelet transfrom.
+f. Return a numpy array in the dimensions readable by tensorflow for convolutional neural network.
+
+Provide citations where possible.
+
+1.

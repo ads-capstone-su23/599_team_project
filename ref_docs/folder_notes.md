@@ -17,6 +17,12 @@
 * "Understanding Wavelets, Part 1: What Are Wavelets": https://youtu.be/QX1-xGVFqmw
 * "The Wavelet Transform for Beginners": https://youtu.be/kuuUaqAjeoA
 
+## Methods
+* Feature extraction
+* CNN w/ fitlers, pooling
+* Adversarial regularizaton for image classification: https://www.tensorflow.org/neural_structured_learning/tutorials/adversarial_keras_cnn_mnist
+
+
 ## chatGPT notes
 Wavelet transform is a powerful tool for analyzing signals and data in various domains, including images and videos. One way to use wavelet transform for predicting image or video data is by using it as a feature extraction method and then using a machine learning algorithm to predict future data points.
 
