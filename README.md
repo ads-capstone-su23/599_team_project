@@ -23,16 +23,6 @@ Daily Retreat: Using Sentiment Analysis to Find, Personalize and Share Positive 
   
 
 ## Overview
-There is a general consensus that news consumption is detrimental to the physical and mental wellness of readers (McLaughlin et al., 2022). This is due to the negative aspects of news media that makes it lucrative and "click-able," but damaging to individuals. There are some websites that try to create their own stories of positive news with their own writers/editors, and it is always possible to Google "good news," however these require extra effort on behalf of individuals seeking a healthy news alternative to take a break from negative news.
-
-There is also a growing trend in people that seek out positive news stories (McIntyre & Gibson, 2016). The article by McIntyre and Gibson mention how more popular news sources are encouraging writers to focus on the "silver lining" to a news story, in order to promote and access this growing trend in reader preferences.
-
-As to the topic of news curation, there have been systems developed using NLP methods like topic-modeling and sentiment analysis, that curate the news based on topic, as in COVID-19, or topics selected by a user. However, there is currently no system in place that seeks to curate news from reliable sources like CNN, FOX, Washington-Post, Reuters, The Hill, etc., that focuses on positive stories.
-
-Therefore, here lies an opportunity to develop a pipeline, perhaps the first step towards a plug-in for phone/web apps, that will feed positive news stories for the day from reliable news sources. This will help attend to the growing interest in positive news, as well as mitigate the negative health effects that the current newsfeed have on individuals. 
-
-
-## Business Problem
 
 In today's fast-paced digital world, the constant influx of news, especially negative news, can be distracting and even detrimental to mental health (Blades, 2021). Simultaneously, manually sifting and curating positive or even "silver-lining" news stories requires intentionality and is tedious and time-consuming. News consumers may also view some negative news as necessary; for example, "hard" information like timely, impactful, and current events is reality. Many sources will continue to provide hard news of all valances, positive or negative. Herein lies an opportunity for the curation of positive, personalized news.
 
@@ -55,6 +45,16 @@ The NewsAPI returns a JSON object with multiple items. This project will mainly 
 The present study aims to demonstrate the automated delivery of positive news highlights with optional topic personalization. This service will be accomplished through applied Natural Language Processing (NLP) and prototype, leveraging advanced language modeling techniques across a wide corpus of news media sources.
 
 "So-called good news outlets" report "surprisingly large audiences and increasing engagement" (McIntyre & Gibson, 2016). The authors note that trends suggest media executives are seeking to increase their audience by emphasizing positives in the news (McIntyre & Gibson, 2016). While this opportunity may be niche relative to much current-event hard news, this study and prototype aim to capitalize on trends in upbeat, topical news delivery.
+
+## Literature Review
+
+There is a general consensus that news consumption is detrimental to the physical and mental wellness of readers (McLaughlin et al., 2022). This is due to the negative aspects of news media that makes it lucrative and "click-able," but damaging to individuals. 
+
+There is also a growing trend in people that seek out positive news stories (McIntyre & Gibson, 2016). The article by McIntyre and Gibson mention how more popular news sources are encouraging writers to focus on the "silver lining" to a news story, in order to promote and access this growing trend in reader preferences.
+
+As to the topic of news curation, there have been systems developed using NLP methods like topic-modeling and sentiment analysis, that curate the news based on topic, as in COVID-19, or topics selected by a user (Surahman et al., 2022). However, there is currently no system in place that seeks to curate news from reliable already existing news sources, to focus on positive stories.
+
+Using similar methodologies to topical news curation, this project seeks to remedy the maladies of constant negative newsfeeds and provide positive news content for a growing number of individuals that seek a retreat from usual news stories.
 
 ## Motivation
 
@@ -118,5 +118,6 @@ This dataset might be limited in diversity, if there is a search criteria requir
 * Pressman, M. (2018, November 2018). Journalistic objectivity evolved the way it did for a reason. Time.  https://time.com/5443351/journalism-objectivity-history/
 * Shearer, E., & Mitchell, A. (2021, May 7). Broad agreement in U.S. – even among partisans – on which news outlets are part of the ‘mainstream media’. Pew Research Center. https://www.pewresearch.org/short-reads/2021/05/07/broad-agreement-in-u-s-even-among-partisans-on-which-news-outlets-are-part-of-the-mainstream-media/
 * Statista. (n.d.). Leading global English-language news websites in the United States in February 2023, by monthly visits. Retrieved July 1, 2023 from https://www.statista.com/statistics/381569/leading-news-and-media-sites-usa-by-share-of-visits/
+* Surahman, E., Liao, Y.-C., Lin, Y.-C., & She, E. (2022). Digital news transformation on education in the most affected country by COVID-19 using the Topic Modeling and Sentiment Analysis. 2022 8th International Conference on Education and Technology (ICET), 99–106. https://doi.org/10.1109/ICET56879.2022.9990686
 * Suttie, J. (2018, August 28). Five Ways to Restore Your Faith in Humanity. Greater Good Magazine Science-Based Insights for a Meaningful life. https://greatergood.berkeley.edu/article/item/five_ways_to_restore_your_faith_in_humanity
 * Trodden, A. (2018, March 21). What is objective and subjective idealism, what are the differences? TostPost.  https://tostpost.com/news-and-society/7947-what-is-objective-and-subjective-idealism-what-are-the-differences.html
