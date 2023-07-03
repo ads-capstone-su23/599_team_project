@@ -1,11 +1,11 @@
 # News Curation - Unlocking Positive News Through Language Models
 Daily Retreat: Using Sentiment Analysis to Find, Personalize and Share Positive News from Popular Online Sources
 
-#### -- Programming Languages/Platforms: Python, R, Jupyter Notebooks, MySQL
+#### -- Programming Languages/Platforms: Python, Jupyter Notebooks, MySQL
 #### -- Project Status: [Active]
 
 ## Goals
-* Develop a pipeline to extract positive/uplifting news articles from usual news sources like CNN, FOX, etc.
+* Develop a pipeline to extract positive/uplifting news articles from usual news sources like CNN, Fox, MSN, New York Times, etc.
 
 ## Team Members
 * Azucena Faus
@@ -20,11 +20,12 @@ Daily Retreat: Using Sentiment Analysis to Find, Personalize and Share Positive 
 * Term frequency-inverse document frequency (TF-IDF) vectorization
 * Sentiment Analysis
 * Topic Modeling
+* Text classification
   
 
 ## Overview
 
-In today's fast-paced digital world, the constant influx of news, especially negative news, can be distracting and even detrimental to mental health (Blades, 2021). Simultaneously, manually sifting and curating positive or even "silver-lining" news stories requires intentionality and is tedious and time-consuming. News consumers may also view some negative news as necessary; for example, "hard" information like timely, impactful, and current events is reality. Many sources will continue to provide hard news of all valances, positive or negative. Herein lies an opportunity for the curation of positive, personalized news.
+In today's fast-paced digital world, the constant influx of news – especially news with highly negative content – can be distracting and even detrimental to mental health (Blades, 2021). Simultaneously, manually sifting and curating positive or even "silver-lining" news stories requires intentionality and is tedious and time-consuming. As many news consumers may also view some negative news to be necessary - for example, "hard" information like timely, impactful, and current events is reality - many sources will continue to provide hard news of all valances, positive or negative. However, herein lies an opportunity to curate positive and personalized news that meets (exceeds) consumer topic and timing preferences.
 
 
 ## Selected Dataset:
@@ -33,16 +34,16 @@ NewsAPI content from news sources considered popular and/or mainstream in the U.
 
 ## Description of Dataset (data source, number of variables, size of dataset, etc.): 
 
-Similar to the text mining project developed for ADS-509, we will be using the NewsAPI REST Application Programming Interface (API) to access news content from a variety of “current and historic news articles published by over 80,000 worldwide sources” (NewsAPI, n.d.). However, the content and source focus has changed from collecting content from politically biased sources for bias classification, to sources that are most popular and/or mainstream toward a different problem statement.
+Similar to the text mining project developed by Carr et al. (2023) for ADS-509, Team 9 will be using the NewsAPI REST Application Programming Interface (API) to access news content from a variety of “current and historic news articles published by over 80,000 worldwide sources” (NewsAPI, n.d.). However, the content and source focus has changed from collecting content from politically biased sources for bias classification to the most popular and/or mainstream sources toward a different problem statement.
 
-We have identified two references that will be used to generate a list of source content with the aim of obtaining content that will appeal to the largest segmentation of U.S. news readers interested in highly positive articles (Shearer & Mitchell, 2021; Statista, n.d.). We will be using the paid version of the API, which potentially has pre-scraped content from each article; for any instance where the content is not readily available, scraping will be done to close gaps.
+We will use two identified references to generate a list of potential source content, to obtain content that will appeal to the largest segmentation of U.S. news readers interested in highly positive articles (Shearer & Mitchell, 2021; Statista, n.d.). We will be using the paid version of the API, which potentially has pre-scraped content from each article; for any instance where the content is not readily available, scraping will be done to close the gaps.
 
-The NewsAPI returns a JSON object with multiple items. This project will mainly focus on collecting two features for this project, including `content` – which is unstructured – and `url`, along with an engineered feature for storage of data we must scrape ourselves. While we do not have a target number of articles, we will collect as much as we possibly can in the allowable time frame. Note: the paid API version allows for 250,000 requests per month so the main limitations will be based on how much content must be scraped manually.
+The NewsAPI returns a JSON object with multiple items. This project will mainly focus on collecting three features for this project, including `content` (which is unstructured), `URL,` and `category,` along with an engineered feature for storage of data we must scrape ourselves. While we do not have a target number of articles, we will collect as many as possible in the allowable time frame. *Note*: The paid API version allows for 250,000 requests per month, so the main limitations will be based on how much content must be scraped manually.
 
 
 ## Purpose and Expected Value
 
-The present study aims to demonstrate the automated delivery of positive news highlights with optional topic personalization. This service will be accomplished through applied Natural Language Processing (NLP) and prototype, leveraging advanced language modeling techniques across a wide corpus of news media sources.
+The present study aims to demonstrate the automated delivery of positive news highlights with optional topic personalization. This service will be accomplished through applied Natural Language Processing (NLP) and a prototype, leveraging advanced language modeling techniques across a wide corpus of news media sources.
 
 "So-called good news outlets" report "surprisingly large audiences and increasing engagement" (McIntyre & Gibson, 2016). The authors note that trends suggest media executives are seeking to increase their audience by emphasizing positives in the news (McIntyre & Gibson, 2016). While this opportunity may be niche relative to much current-event hard news, this study and prototype aim to capitalize on trends in upbeat, topical news delivery.
 
@@ -69,21 +70,21 @@ Based on this, the project’s working hypothesis is that sentiment analysis (SA
 ## Data Science Objectives
 
 In order to address the stated business problem, several data science objectives have been identified in order to ultimately develop a highly effective SA machine learning (ML) model that can be applied to collected news source articles.
-Build an automated and systematic pipeline for the ingestion and preprocessing of unstructured data.
-Apply topic modeling techniques to produce class labels for specific documents (articles) within the dataset.
-Use SA ML modeling to output a “positivity” score for every article.
+1. Build an automated, systematic, and deployment-ready pipeline for the ingestion, preprocessing, modeling, and evaluation of text-based data.
+2. Apply topic modeling techniques to produce class labels for specific documents (articles) within the dataset.
+3. Use SA ML modeling to output a “positivity” score for every article.
 
 ## Planned Methodology 
 
 To achieve the business and data science objectives, the following methods will be used:
-Collect data, via API call (supplemented with web scraping, as needed).
-Perform Exploratory Data Analyses (EDA) to investigate underlying structures of the data, which will include generation of descriptive statistics and visualizations (e.g., word count box plots, histograms, word clouds, etc.).
-Perform text data preprocessing using methods tailored to the specific content source. This may include removing any items considered noise, such as stop words and punctuation, as well as examining whether lemmatization or stemming methods would bolster model performance.
-Perform topic modeling to create instance labels via unsupervised methods, possibly using both simple (NMF) and complex (NN-based transfer learning).
-Apply SA modeling methods to achieve “positivity” assignment per article.
-Evaluate SA performance by applying the trained model to an independent, similar, and sentiment-labeled dataset, such as the PerSenT dataset from Bastan et al. (2020).
-Serve up examples of uplifting content based on chosen categories/topics.
-Rate sources based on proportion of positive and negative content.
+1. Collect data, via API call (supplemented with web scraping, as needed).
+2. Perform Exploratory Data Analyses (EDA) to investigate underlying structures of the data, which will include generation of descriptive statistics and visualizations (e.g., word count box plots, histograms, word clouds, etc.).
+3. Perform text data preprocessing using methods tailored to the specific content source. This may include removing any items considered noise, such as stop words and punctuation, as well as examining whether lemmatization or stemming methods would bolster model performance.
+4. Perform topic modeling to create instance labels via unsupervised methods, possibly using both simple (NMF) and complex (NN-based transfer learning).
+5. Apply SA modeling methods to achieve “positivity” assignment per article.
+6. Evaluate SA performance by applying the trained model to an independent, similar, and sentiment-labeled dataset, such as the PerSenT dataset from Bastan et al. (2020).
+7. Serve up examples of uplifting content based on chosen categories/topics.
+8. Rate sources based on proportion of positive and negative content.
 
 ## Real-World Impact and Planned Deliverables
 

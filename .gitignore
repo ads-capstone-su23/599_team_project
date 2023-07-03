@@ -1,16 +1,10 @@
 *Solutions*
-lyrics/*
-twitter-data/*
 .DS_Store
 *api_keys*.py
 *.zip
-Lyrics Scrape.ipynb
-Twitter API.ipynb
-Assignment 1 Evaluation.ipynb	
-M1 Assignment Data/*
-old-stuff/*
 archives/*
 deliverables/archives/*
+ref_docs/archives/*
 data/*
 
 # Byte-compiled / optimized / DLL files
