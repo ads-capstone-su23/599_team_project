@@ -1,9 +1,18 @@
 USE 599_capstone;
 
 SELECT * FROM nar_temp;
-SELECT * FROM news_articles;
+SELECT * FROM news_articles
+LIMIT 10000;
+
+SELECT * FROM news_articles
+LIMIT 10000;
+
 SELECT * FROM news_articles
 WHERE source_name NOT IN ("CNN", "The Washington Post", "Fox News", "Breitbart News");
+
+SELECT * FROM news_articles
+WHERE LEFT(url, 21) = 'https://theeagleswire'
+LIMIT 10000;
 
 SELECT
 source_name,
@@ -12,10 +21,9 @@ COUNT(*) / sum(count(*)) over () AS source_dist
 FROM news_articles
 GROUP BY source_name;
 
-SELECT DISTINCT source_name, title, article_text
+SELECT DISTINCT source_name, title, article_text, content, url
 FROM news_articles
 WHERE article_text IS NOT NULL
-	AND (source_name="CNN" OR source_name="The Washington Post" OR source_name="Fox News" OR source_name="Breitbart News")
 LIMIT 10000;
 
 SELECT
@@ -24,14 +32,17 @@ COUNT(*) AS source_count,
 COUNT(*) / sum(count(*)) over () AS source_dist
 FROM news_articles
 WHERE article_text IS NOT NULL
-	AND (source_name="CNN" OR source_name="The Washington Post" OR source_name="Fox News" OR source_name="Breitbart News")
 GROUP BY source_name;
 
 SELECT source_name, title, article_text
 FROM news_articles
 WHERE article_text IS NULL
-	AND (source_name="CNN" OR source_name="Fox News" OR source_name="Breitbart News")
-LIMIT 10000;
+LIMIT 100000;
+
+SELECT DISTINCt url
+FROM news_articles
+WHERE article_text IS NULL
+LIMIT 100000;
 
 DESC news_articles;
 
@@ -41,7 +52,6 @@ CAST(LEFT(publish_date, 10) AS DATE) AS date,
 COUNT(*) AS source_count,
 COUNT(*) / sum(count(*)) over () AS source_dist
 FROM news_articles
-WHERE (source_name="CNN" OR source_name="The Washington Post"  OR source_name="Fox News" OR source_name="Breitbart News")
-	AND CAST(LEFT(publish_date, 10) AS DATE) > '2023-06-03'
+WHERE CAST(LEFT(publish_date, 10) AS DATE) <= '2023-06-19'
 GROUP BY source_name, CAST(LEFT(publish_date, 10) AS DATE) with rollup
 ORDER BY CAST(LEFT(publish_date, 10) AS DATE), source_name;

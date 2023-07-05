@@ -4,6 +4,7 @@
 *.zip
 archives/*
 deliverables/archives/*
+data/archives/*
 ref_docs/archives/*
 
 # Byte-compiled / optimized / DLL files
