@@ -2,7 +2,7 @@ USE 599_capstone;
 
 SELECT * FROM nar_temp;
 SELECT * FROM news_articles
-LIMIT 10000;
+LIMIT 100000;
 
 SELECT * FROM news_articles
 LIMIT 10000;
@@ -32,14 +32,22 @@ COUNT(*) AS source_count,
 COUNT(*) / sum(count(*)) over () AS source_dist
 FROM news_articles
 WHERE article_text IS NOT NULL
-GROUP BY source_name;
+GROUP BY source_name WITH ROLLUP;
+
+SELECT
+source_name,
+COUNT(*) AS source_count,
+COUNT(*) / sum(count(*)) over () AS source_dist
+FROM news_articles
+WHERE article_text IS NULL
+GROUP BY source_name WITH ROLLUP;
 
 SELECT source_name, title, article_text
 FROM news_articles
 WHERE article_text IS NULL
 LIMIT 100000;
 
-SELECT DISTINCt url
+SELECT DISTINCT url
 FROM news_articles
 WHERE article_text IS NULL
 LIMIT 100000;
