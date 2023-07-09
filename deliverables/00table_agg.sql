@@ -4,6 +4,8 @@ SELECT * FROM nar_temp;
 SELECT * FROM news_articles
 LIMIT 100000;
 
+CHECK TABLE news_articles;
+
 SELECT * FROM news_articles
 LIMIT 10000;
 
@@ -24,7 +26,7 @@ GROUP BY source_name;
 SELECT DISTINCT source_name, title, article_text, content, url
 FROM news_articles
 WHERE article_text IS NOT NULL
-LIMIT 10000;
+LIMIT 100000;
 
 SELECT
 source_name,
@@ -60,6 +62,6 @@ CAST(LEFT(publish_date, 10) AS DATE) AS date,
 COUNT(*) AS source_count,
 COUNT(*) / sum(count(*)) over () AS source_dist
 FROM news_articles
-WHERE CAST(LEFT(publish_date, 10) AS DATE) <= '2023-06-19'
+WHERE CAST(LEFT(publish_date, 10) AS DATE) < '2023-06-01'
 GROUP BY source_name, CAST(LEFT(publish_date, 10) AS DATE) with rollup
 ORDER BY CAST(LEFT(publish_date, 10) AS DATE), source_name;
