@@ -1,7 +1,7 @@
 USE 599_capstone;
 
 SELECT * FROM nar_temp;
-SELECT * FROM news_articles
+SELECT * FROM news_articles_rvsd
 LIMIT 100000;
 
 CHECK TABLE news_articles;
@@ -50,8 +50,17 @@ WHERE article_text IS NULL
 LIMIT 100000;
 
 SELECT DISTINCT url
-FROM news_articles
+FROM news_articles_rvsd
 WHERE article_text IS NULL
+LIMIT 100000;
+
+SELECT DISTINCT url
+FROM news_articles_rvsd
+LIMIT 100000;
+
+SELECT DISTINCT url, article_text
+FROM news_articles_rvsd
+WHERE article_text = ''
 LIMIT 100000;
 
 DESC news_articles;
