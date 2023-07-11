@@ -1,12 +1,12 @@
 USE 599_capstone;
 
-DROP TABLE IF EXISTS nar_temp;
-DROP TABLE IF EXISTS news_articles;
+/*DROP TABLE IF EXISTS nar_temp;*/
+/*DROP TABLE IF EXISTS news_articles;*/
 
 /**/
 CREATE TABLE news_articles
 (
-text_id SMALLINT UNSIGNED AUTO_INCREMENT,
+text_id INT UNSIGNED AUTO_INCREMENT,
 source_name VARCHAR(1000),
 author VARCHAR(1000),
 title VARCHAR(1000),
