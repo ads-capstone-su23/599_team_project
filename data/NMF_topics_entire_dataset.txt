@@ -1,0 +1,75 @@
+
+Topic 00 - ECONOMY
+  inflation (0.33)
+  rates (0.30)
+  rate (0.28)
+  loan (0.26)
+  interest (0.21)
+
+Topic 01 - SPORTS/BASEBALL
+BING: "Based on the keywords you provided, 
+it seems like you are asking about baseball player prop bets. 
+Prop bets are wagers that are not directly related to the outcome of the game"
+
+  prop (0.98)
+  runs (0.78)
+  odds (0.74)
+  rbi (0.65)
+  games (0.63)
+
+Topic 02 - PRESIDENCY/GOVERNMENT
+  trump (0.98)
+  biden (0.41)
+  president (0.38)
+  trumps (0.29)
+  former (0.27)
+
+Topic 03 - JUSTICE/POLICE
+  people (0.12)
+  new (0.10)
+  police (0.09)
+  one (0.08)
+  like (0.08)
+
+Topic 04 - RETAIL/AMAZON REVIEWS
+(could this be ads in the articles?)
+  amazon (0.55)
+  review (0.44)
+  amazon available (0.30)
+  available (0.26)
+  colors (0.22)
+
+Topic 05 - FOREIGN AFFAIRS
+  russian (0.92)
+  prigozhin (0.66)
+  ukraine (0.64)
+  wagner (0.59)
+  putin (0.51)
+
+Topic 06 - TECHNOLOGY, REGULATION
+  ai (1.28)
+  data (0.28)
+  technology (0.25)
+  generative (0.23)
+  generative ai (0.22)
+
+Topic 07 - TITAN IMPLOSION
+  titanic (0.91)
+  submersible (0.80)
+  titan (0.69)
+  oceangate (0.66)
+  coast (0.44)
+
+Topic 08 - SPORTS/NBA
+  celtics (1.22)
+  nba (0.84)
+  draft (0.74)
+  boston (0.53)
+  nba draft (0.42)
+
+Topic 09 - SPORTS/NFL
+  wire (0.38)
+  football (0.29)
+  season (0.28)
+  nfl (0.25)
+  text (0.24)
