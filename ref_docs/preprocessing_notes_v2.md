@@ -1,5 +1,5 @@
 KWIC RESERCH
-your inbox every
+-your inbox every
 sign up
 getty images
 to a news release
@@ -12,15 +12,23 @@ terms and conditions
 up to date
 first to report
 originally published
+view this on instgram/twitter
+all rights reserved
+copyright
+courtesy everett collection
+© 2023 disney/pixar.
+see tipico.com for terms and conditions
+ new customers only
 
 \n \n\n\n\n\nlike this article?\nsign up for the for the win newsletter to get our top stories in your inbox every morning\n\n\nemail\n \n\n\n\t\t\t\tsign up\t\t\t\t\n\n\n\n\t\t\t\t\tview all newsletters\t\t\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmore how to watch\n\n\n
 
 
 GENERAL
+
 remove author
 remove publication
 www.___.com/
 when is the best time and what is the best procedure for periods; need to deal with acropyns plus spliced end/beginning of senteances
 remove months
 remove days of week
-
+change all multiple space to single
