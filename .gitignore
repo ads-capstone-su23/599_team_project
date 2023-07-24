@@ -5,6 +5,8 @@
 archives/*
 deliverables/archives/*
 data/*
+data_restricted/*
+images/archives/*
 ref_docs/archives/*
 
 # Byte-compiled / optimized / DLL files
