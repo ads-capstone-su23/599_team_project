@@ -5,8 +5,8 @@ pd.set_option('display.float_format', lambda x: '%.2f' % x)
 pd.set_option('display.precision', PRECISION)
 pd.set_option('display.width', 1000)
 pd.set_option('display.colheader_justify', 'center')
-pd.set_option('display.max_rows', 100)
-pd.set_option('display.max_columns', 30)
+pd.set_option('display.max_rows', 120)
+pd.set_option('display.max_columns', 40)
 pd.set_option('display.max_colwidth', 100)
 
 # Set Matplotlib defaults for consistent visualization look 'n' feel
