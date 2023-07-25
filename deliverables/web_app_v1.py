@@ -19,7 +19,7 @@ print(up1_dir)
 data_location = 'data'
 ref_docs_location = 'ref_docs'
 
-file_in_name01 = 'data_preprocessed_wo_sw_2023-07-20_13-02-01408354.csv'
+file_in_name01 = 'data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv'
 
 file_in_path01 = os.path.join(up1_dir, data_location, file_in_name01)
 
