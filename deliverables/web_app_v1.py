@@ -4,8 +4,6 @@ https://towardsdatascience.com/how-to-deploy-machine-learning-models-601f8c13ff4
 
 import streamlit as st
 import pandas as pd
-from sklearn.preprocessing import  LabelEncoder
-import xgboost as xgb
 import numpy as np
 
 '''Dir nav citation:
