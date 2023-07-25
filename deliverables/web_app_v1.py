@@ -15,7 +15,7 @@ print(os.listdir())
 
 # Try to read the file and handle any exceptions
 try:
-    data = pd.read_csv("data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv")
+    data = pd.read_csv("/data/data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv")
     st.write(data)
 except Exception as e:
     st.error(f"CWD: {os.getcwd()}\nList dir: {os.listdir()}\nError: {e}")
