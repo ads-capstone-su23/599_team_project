@@ -18,7 +18,7 @@ try:
     data = pd.read_csv("data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv")
     st.write(data)
 except Exception as e:
-    st.error(f"Error: {os.getcwd()}\n{os.listdir()}\n{e}")
+    st.error(f"CWD: {os.getcwd()}\nList dir: {os.listdir()}\nError: {e}")
 
 #file_in_name01 = 'data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv'
 
