@@ -59,3 +59,4 @@ with left_column:
 
 if st.button('Find articles'):
     inp_species
+    len(inp_species)
