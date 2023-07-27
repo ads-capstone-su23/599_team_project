@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import ast  # Import the ast module for literal_eval
 
 # Print current working directory (for debugging)
 os.getcwd()
@@ -68,9 +69,13 @@ if st.button('Find articles'):
     filtered_data = data[data['multilabel'].apply(lambda x: any(x[idx] == 1 for idx in selected_indices))]
     st.write(filtered_data)
 
-if st.button('Find articles rvsd'):
+if st.button('Find articles'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
     selected_indices = [topic_dict[i] for i in inp_species]
     selected_topic_names = [rev_topic_dict[idx] for idx in selected_indices]
+    
+    # Convert the 'multilabel' column from string to list of integers
+    data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
+    
     filtered_data = data[data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
     st.write(filtered_data)
