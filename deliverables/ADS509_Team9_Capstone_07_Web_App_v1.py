@@ -55,9 +55,7 @@ left_column, right_column = st.columns(2)
 with left_column:
     inp_species = st.multiselect(
         'Topic Name:',
-        topic_dict.values())
-with right_column:
-    topic_dict.keys()
+        topic_lst)
 
 if st.button('Find articles'):
     inp_species
