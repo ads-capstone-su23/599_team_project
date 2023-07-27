@@ -58,4 +58,4 @@ with left_column:
         topic_lst)
 
 if st.button('Find articles'):
-    print(inp_species)
+    inp_species
