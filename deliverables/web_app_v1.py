@@ -56,5 +56,6 @@ with left_column:
     inp_species = st.multiselect(
         'Topic Name:',
         topic_lst)
-    
-print(inp_species)
+
+if st.button('Find articles'):
+    print(inp_species)
