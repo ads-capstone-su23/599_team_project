@@ -16,7 +16,7 @@ print(os.listdir())
 # Try to read the file and handle any exceptions
 try:
     data = pd.read_csv("data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv")
-    st.write(data)
+    #st.write(data)
 except Exception as e:
     st.error(f"CWD: {os.getcwd()}\nList dir: {os.listdir()}\nError: {e}")
 
@@ -29,7 +29,7 @@ st.header("Positive News App")
 st.text_input("Enter your Name: ", key="name")
 
 if st.checkbox('Show dataframe'):
-    data
+    data.head()
 
 topic_lst = ['season draft',
          'prop runs',
@@ -51,6 +51,6 @@ for idx, t in enumerate(topic_lst):
 st.subheader("Please select Topic(s)!")
 left_column, right_column = st.columns(2)
 with left_column:
-    inp_species = st.radio(
+    inp_species = st.selectbox(
         'Topic Name:',
         topic_lst)
