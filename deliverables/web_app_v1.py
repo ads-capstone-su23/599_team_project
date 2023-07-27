@@ -51,6 +51,6 @@ for idx, t in enumerate(topic_lst):
 st.subheader("Please select Topic(s)!")
 left_column, right_column = st.columns(2)
 with left_column:
-    inp_species = st.checkbox(
+    inp_species = st.radio(
         'Topic Name:',
         topic_lst)
