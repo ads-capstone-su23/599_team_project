@@ -15,7 +15,9 @@ print(os.listdir())
 
 # Try to read the file and handle any exceptions
 try:
-    data = pd.read_csv("data_preprocessed_wo_sw_X2_2023-07-25_13-11-04731013.csv")
+    data01 = pd.read_csv("data_preprocessed_wo_sw_X_half1_2023-07-27_13-51-36424666.csv")
+    data02 = pd.read_csv("data_preprocessed_wo_sw_X_half2_2023-07-27_13-51-36424666.csv")
+    data = pd.concat([data01, data02], ignore_index=True)
     #st.write(data)
 except Exception as e:
     st.error(f"CWD: {os.getcwd()}\nList dir: {os.listdir()}\nError: {e}")
@@ -54,3 +56,5 @@ with left_column:
     inp_species = st.multiselect(
         'Topic Name:',
         topic_lst)
+    
+print(inp_species)
