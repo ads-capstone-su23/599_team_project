@@ -63,4 +63,6 @@ if st.button('Find articles'):
     for i in inp_species:
         idx = topic_dict[i]
         st.write(idx)
-        st.write(data.loc[data['multilabel'][idx]==1])
+    selected_indices = [topic_dict[i] for i in inp_species]
+    filtered_data = data[data['multilabel'].apply(lambda x: any(x[idx] == 1 for idx in selected_indices))]
+    st.write(filtered_data)
