@@ -8,10 +8,10 @@ import numpy as np
 import os
 
 # Print current working directory (for debugging)
-print(os.getcwd())
+os.getcwd()
 
 # Print the list of files in the current directory (for debugging)
-print(os.listdir())
+os.listdir()
 
 # Try to read the file and handle any exceptions
 try:
@@ -34,15 +34,15 @@ if st.checkbox('Show dataframe'):
     data
 
 topic_lst = ['season draft',
-         'prop runs',
-         'amazon review',
-         'trump president',
-         'business work',
-         'russian prigozhin',
-         'ai generative',
-         'titanic submersible',
-         'inflation rates',
-         'police court']
+             'prop runs',
+             'amazon review',
+             'trump president',
+             'business work',
+             'russian prigozhin',
+             'ai generative',
+             'titanic submersible',
+             'inflation rates',
+             'police court']
 
 topic_dict = {}
 for idx, t in enumerate(topic_lst):
@@ -55,7 +55,11 @@ left_column, right_column = st.columns(2)
 with left_column:
     inp_species = st.multiselect(
         'Topic Name:',
-        topic_lst)
+        topic_dict.values())
+with right_column:
+    topic_dict.keys()
 
 if st.button('Find articles'):
     inp_species
+    inp_species[0]
+    
