@@ -46,7 +46,7 @@ topic_lst = ['season draft',
 
 topic_dict = {}
 for idx, t in enumerate(topic_lst):
-    topic_dict[idx] = t
+    topic_dict[t] = idx
     
 #print(topic_dict)
 
@@ -60,3 +60,5 @@ with left_column:
 if st.button('Find articles'):
     inp_species[0]
     st.write(len(inp_species))
+    for i in inp_species:
+        st.write(topic_dict[i])
