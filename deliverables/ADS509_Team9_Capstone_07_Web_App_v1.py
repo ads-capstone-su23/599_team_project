@@ -58,17 +58,6 @@ with left_column:
         'Topic Name:',
         topic_lst)
 
-if st.button('Find articles'):
-    inp_species[0]
-    st.write(len(inp_species))
-    for i in inp_species:
-        idx = topic_dict[i]
-        st.write(idx)
-    selected_indices = [topic_dict[i] for i in inp_species]
-    st.write(selected_indices)
-    filtered_data = data[data['multilabel'].apply(lambda x: any(x[idx] == 1 for idx in selected_indices))]
-    st.write(filtered_data)
-
 if st.button('Find articles rvsd'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
     selected_indices = [topic_dict[i] for i in inp_species]
