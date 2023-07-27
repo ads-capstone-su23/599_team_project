@@ -62,3 +62,4 @@ if st.button('Find articles'):
     st.write(len(inp_species))
     for i in inp_species:
         st.write(topic_dict[i])
+        st.write(data.loc[data['multilabel'][i]==1])
