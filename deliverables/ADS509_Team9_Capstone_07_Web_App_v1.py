@@ -58,5 +58,5 @@ with left_column:
         topic_lst)
 
 if st.button('Find articles'):
-    inp_species
+    inp_species[0]
     len(inp_species)
