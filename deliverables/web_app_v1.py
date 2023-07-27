@@ -25,8 +25,32 @@ except Exception as e:
 #data = pd.read_csv(file_in_name01)
 #display(data.head())
 
-st.header("Fish Weight Prediction App")
+st.header("Positive News App")
 st.text_input("Enter your Name: ", key="name")
 
 if st.checkbox('Show dataframe'):
     data
+
+topic_lst = ['season draft',
+         'prop runs',
+         'amazon review',
+         'trump president',
+         'business work',
+         'russian prigozhin',
+         'ai generative',
+         'titanic submersible',
+         'inflation rates',
+         'police court']
+
+topic_dict = {}
+for idx, t in enumerate(topic_lst):
+    topic_dict[idx] = t
+    
+#print(topic_dict)
+
+st.subheader("Please select Topic(s)!")
+left_column, right_column = st.columns(2)
+with left_column:
+    inp_species = st.checkbox(
+        'Topic Name:',
+        topic_lst)
