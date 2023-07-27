@@ -29,7 +29,7 @@ st.header("Positive News App")
 st.text_input("Enter your Name: ", key="name")
 
 if st.checkbox('Show dataframe'):
-    data.head()
+    data
 
 topic_lst = ['season draft',
          'prop runs',
@@ -51,6 +51,6 @@ for idx, t in enumerate(topic_lst):
 st.subheader("Please select Topic(s)!")
 left_column, right_column = st.columns(2)
 with left_column:
-    inp_species = st.selectbox(
+    inp_species = st.multiselect(
         'Topic Name:',
         topic_lst)
