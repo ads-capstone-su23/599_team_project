@@ -65,16 +65,21 @@ for idx, t in enumerate(topic_lst):
 st.subheader("Please select Topic(s)!")
 left_column, right_column = st.columns(2)
 with left_column:
-    inp_species = st.multiselect(
+    selected_topics = st.multiselect(
         'Topic Name:',
         topic_lst)
+
+with right_column:
+    selected_sources = st.multiselect(
+        'Source Name:',
+        data['source_name'].unique())
 
 random_state = 1699
 random.seed(random_state)
 
 if st.button('Find articles'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
-    selected_indices = [topic_dict[i] for i in inp_species]
+    selected_indices = [topic_dict[i] for i in selected_topics]
     selected_topic_names = [rev_topic_dict[idx] for idx in selected_indices]
     
     # Convert the 'multilabel' column from string to list of integers
@@ -93,7 +98,4 @@ if st.button('Find articles'):
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sample(5, random_state=random_state)
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
-    for row in filtered_data:
-        st.write(row[['publish_date']], unsafe_allow_html=True)
-        st.write(row[['url']], unsafe_allow_html=True)
-        st.write('\n')
+    st.write(filtered_data, unsafe_allow_html=True)
