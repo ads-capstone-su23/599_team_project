@@ -83,7 +83,7 @@ if st.button('Find articles'):
     data_hlink = data.copy()
     data_hlink['url'] = data_hlink['url'].apply(lambda x: f'<a href="{x}" target="_blank">{x}</a>')
     #st.write(data_with_hyperlinks, unsafe_allow_html=True)
-    data_hlink = data_hlink.to_html(escape=False)
+    #data_hlink = data_hlink.to_html(escape=False)
 
     filtered_data = data_hlink.loc[data_hlink['sentiment_bert'] > .9]
     filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
@@ -91,4 +91,4 @@ if st.button('Find articles'):
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sample(5, random_state=random_state)
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
-    st.write(filtered_data, unsafe_allow_html=True)
+    st.markdown(filtered_data, unsafe_allow_html=True)
