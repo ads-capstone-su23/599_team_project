@@ -90,10 +90,12 @@ if st.button('Find articles'):
     #data_hlink['url'] = data_hlink['url'].apply(to_html, escape=False)
     #st.write(data_with_hyperlinks, unsafe_allow_html=True)
     #data_hlink = data_hlink.to_html(escape=False)
-
+    
     filtered_data = data_hlink.loc[data_hlink['sentiment_bert'] > .9]
     #for t in selected_topic_names:
-    filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
+    filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
+    if len(selected_sources) > 0:
+        filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
     fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sample(5, random_state=random_state)
