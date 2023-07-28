@@ -66,6 +66,10 @@ with left_column:
         'Topic Name:',
         topic_lst)
 
+'''
+Filter citation:
+https://chat.openai.com/share/163a4e26-8987-434c-b8c5-20f3749188f8
+'''
 if st.button('Find articles'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
     selected_indices = [topic_dict[i] for i in inp_species]
@@ -74,7 +78,8 @@ if st.button('Find articles'):
     # Convert the 'multilabel' column from string to list of integers
     data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
     
-    filtered_data = data[data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
+    filtered_data = data[data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
     fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
     filter_data_d = filtered_data[fd_display_cols]
+    filter_data_d = filter_data_d.loc[filter_data_d['sentiment_bert'] > .5]
     st.write(filter_data_d)
