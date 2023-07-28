@@ -93,4 +93,7 @@ if st.button('Find articles'):
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sample(5, random_state=random_state)
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
-    st.write(filtered_data, unsafe_allow_html=True)
+    for row in filtered_data:
+        st.write(row[['publish_date']], unsafe_allow_html=True)
+        st.write(row[['url']], unsafe_allow_html=True)
+        st.write('\n')
