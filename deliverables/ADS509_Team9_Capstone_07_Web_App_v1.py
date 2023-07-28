@@ -20,6 +20,11 @@ try:
     data02 = pd.read_csv('data_tm_wo_sw_Xy_half2_2023-07-28_10-51-08326790.csv')
     data = pd.concat([data01, data02], ignore_index=True)
     y01_arr01 = np.load('data_tm_wo_sw_topic_lst_2023-07-28_10-51-08326790.npy')
+    # Load pre-processed sentiment
+    data_sa01 = pd.read_csv('data_sa_w_sw_half1_2023-07-28_12-11-33337653.csv')
+    data_sa02 = pd.read_csv('data_sa_w_sw_half2_2023-07-28_12-11-33337653.csv')
+    data_sa = pd.concat([data_sa01, data_sa02], ignore_index=True)
+    data = pd.merge(data, data_sa, on='text_id')
     #st.write(data)
 except Exception as e:
     st.error(f'CWD: {os.getcwd()}\nList dir: {os.listdir()}\nError: {e}')
@@ -61,7 +66,7 @@ with left_column:
         'Topic Name:',
         topic_lst)
 
-if st.button('Find articles rvsd'):
+if st.button('Find articles'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
     selected_indices = [topic_dict[i] for i in inp_species]
     selected_topic_names = [rev_topic_dict[idx] for idx in selected_indices]
