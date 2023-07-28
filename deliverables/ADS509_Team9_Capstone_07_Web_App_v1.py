@@ -82,6 +82,7 @@ if st.button('Find articles'):
     
     data_hlink = data.copy()
     data_hlink['url'] = data_hlink['url'].apply(lambda x: f'<a href="{x}" target="_blank">{x}</a>')
+    data_hlink['url'] = data_hlink['url'].apply(to_html, escape=False)
     #st.write(data_with_hyperlinks, unsafe_allow_html=True)
     #data_hlink = data_hlink.to_html(escape=False)
 
@@ -91,4 +92,4 @@ if st.button('Find articles'):
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sample(5, random_state=random_state)
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
-    st.markdown(filtered_data, unsafe_allow_html=True)
+    st.write(filtered_data, unsafe_allow_html=True)
