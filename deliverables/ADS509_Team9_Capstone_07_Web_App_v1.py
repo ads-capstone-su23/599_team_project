@@ -83,6 +83,7 @@ if st.button('Find articles'):
     data_hlink = data.copy()
     data_hlink['url'] = data_hlink['url'].apply(lambda x: f'<a href="{x}" target="_blank">{x}</a>')
     #st.write(data_with_hyperlinks, unsafe_allow_html=True)
+    data_hlink = data_hlink.to_html(escape=False)
 
     filtered_data = data_hlink.loc[data_hlink['sentiment_bert'] > .9]
     filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
