@@ -101,3 +101,9 @@ if st.button('Find articles'):
     filtered_data = filtered_data.sample(5, random_state=random_state)
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
     st.write(filtered_data, unsafe_allow_html=True)
+    st.data_editor(
+    filtered_data,
+    column_config={
+        "url": st.column_config.LinkColumn("Trending apps")
+    },
+    hide_index=True,)
