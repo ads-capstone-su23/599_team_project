@@ -37,8 +37,8 @@ except Exception as e:
 #data = pd.read_csv(file_in_name01)
 #display(data.head())
 
-st.header('Positive News App')
-st.text_input('Enter your Name: ', key='name')
+st.header('Your Daily Retreat: Positive News App')
+#st.text_input('Enter your Name: ', key='name')
 
 if st.checkbox('Show dataframe'):
     data
@@ -69,7 +69,8 @@ with left_column:
         'Topic Name:',
         topic_lst)
 
-random.seed(1699)
+random_state = 1699
+random.seed(random_state)
 
 if st.button('Find articles'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
@@ -79,10 +80,14 @@ if st.button('Find articles'):
     # Convert the 'multilabel' column from string to list of integers
     data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
     
-    filtered_data = data.loc[data['sentiment_bert'] > .85]
+    data_hlink = data.copy()
+    data_hlink['url'] = data_hlink['url'].apply(lambda x: f'<a href="{x}" target="_blank">{x}</a>')
+    #st.write(data_with_hyperlinks, unsafe_allow_html=True)
+
+    filtered_data = data_hlink.loc[data_hlink['sentiment_bert'] > .9]
     filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
     fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
     filtered_data = filtered_data[fd_display_cols]
-    filtered_data = filtered_data.sample(5)
-    filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'])
-    st.write(filtered_data)
+    filtered_data = filtered_data.sample(5, random_state=random_state)
+    filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
+    st.write(filtered_data, unsafe_allow_html=True)
