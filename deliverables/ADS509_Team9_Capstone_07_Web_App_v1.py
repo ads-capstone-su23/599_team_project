@@ -96,7 +96,8 @@ if st.button('Find articles'):
         fill_df_s1 = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
         for s in selected_sources:
             st.write(s)
-            fill_df_s2 = fill_df_s1[s[0]].sample(2, random_state=random_state)
+            st.write(fill_df_s1[s]]
+            fill_df_s2 = fill_df_s1[s].sample(2, random_state=random_state)
             fill_df = pd.concat([fill_df, fill_df_s2], ignore_index=True)
         filtered_data = fill_df.copy()
     else:
