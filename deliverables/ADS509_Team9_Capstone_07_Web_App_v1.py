@@ -94,7 +94,10 @@ if st.button('Find articles'):
     source_len = len(selected_sources)
     if source_len > 0:
         filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
-        filtered_data = filtered_data.sample(3*source_len, random_state=random_state)
+        try:
+            filtered_data = filtered_data.sample(3*source_len, random_state=random_state)
+        except:
+            filtered_data = filtered_data.sample(len(filtered_data), random_state=random_state)
     else:
         filtered_data = filtered_data.sample(7, random_state=random_state)
     fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
