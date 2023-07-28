@@ -1,11 +1,14 @@
 '''Streamlit citation:
 https://towardsdatascience.com/how-to-deploy-machine-learning-models-601f8c13ff45
+Filter citation:
+https://chat.openai.com/share/163a4e26-8987-434c-b8c5-20f3749188f8
 '''
 
 import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import random
 import ast  # Import the ast module for literal_eval
 
 # Print current working directory (for debugging)
@@ -66,10 +69,8 @@ with left_column:
         'Topic Name:',
         topic_lst)
 
-'''
-Filter citation:
-https://chat.openai.com/share/163a4e26-8987-434c-b8c5-20f3749188f8
-'''
+random.seed(1699)
+
 if st.button('Find articles'):
     rev_topic_dict = {v: k for k, v in topic_dict.items()}
     selected_indices = [topic_dict[i] for i in inp_species]
@@ -81,5 +82,6 @@ if st.button('Find articles'):
     filtered_data = data[data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
     fd_display_cols = ['publish_date', 'source_name', 'title', 'url', 'sentiment_bert']
     filter_data_d = filtered_data[fd_display_cols]
-    filter_data_d = filter_data_d.loc[filter_data_d['sentiment_bert'] > .5]
+    filter_data_d = filter_data_d.loc[filter_data_d['sentiment_bert'] > .85]
+    filter_data_d = filter_data_d.sample(5)
     st.write(filter_data_d)
