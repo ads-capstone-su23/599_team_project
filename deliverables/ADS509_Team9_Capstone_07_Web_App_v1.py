@@ -91,17 +91,12 @@ if st.button('Find articles'):
     
     filtered_data = data.loc[data['sentiment_bert'] > .9]
     filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
-    if len(selected_sources) > 0:
-        fill_df = pd.DataFrame()
-        fill_df_s1 = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
-        for s in selected_sources:
-            st.write(s)
-            st.write(fill_df_s1[s])
-            fill_df_s2 = fill_df_s1[s].sample(2, random_state=random_state)
-            fill_df = pd.concat([fill_df, fill_df_s2], ignore_index=True)
-        filtered_data = fill_df.copy()
+    source_len = len(selected_sources)
+    if source_len > 0:
+        filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
+        filtered_data = filtered_data.sample(3*source_len, random_state=random_state)
     else:
-        filtered_data = filtered_data.sample(5, random_state=random_state)
+        filtered_data = filtered_data.sample(7, random_state=random_state)
     fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
