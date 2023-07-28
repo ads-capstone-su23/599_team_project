@@ -79,9 +79,10 @@ if st.button('Find articles'):
     # Convert the 'multilabel' column from string to list of integers
     data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
     
-    filtered_data = data[data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
-    fd_display_cols = ['publish_date', 'source_name', 'title', 'url', 'sentiment_bert']
-    filter_data_d = filtered_data[fd_display_cols]
-    filter_data_d = filter_data_d.loc[filter_data_d['sentiment_bert'] > .85]
-    filter_data_d = filter_data_d.sample(5)
-    st.write(filter_data_d)
+    filtered_data = data.loc[data['sentiment_bert'] > .85]
+    filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]]==1 for name in selected_topic_names))]
+    fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
+    filtered_data = filtered_data[fd_display_cols]
+    filtered_data = filtered_data.sample(5)
+    filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'])
+    st.write(filtered_data)
