@@ -70,4 +70,6 @@ if st.button('Find articles rvsd'):
     data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
     
     filtered_data = data[data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
-    st.write(filtered_data)
+    fd_display_cols = ['publish_date', 'source_name', 'title', 'url']
+    filter_data_d = filtered_data[fd_display_cols]
+    st.write(filter_data_d)
