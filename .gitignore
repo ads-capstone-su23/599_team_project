@@ -4,8 +4,8 @@
 *.zip
 archives/*
 deliverables/archives/*
-data/*
-data_restricted/*
+data/archives/*
+data_large/*
 images/archives/*
 ref_docs/archives/*
 
