@@ -41,11 +41,11 @@ st.header('Your Daily Retreat: Positive News App')
 if st.checkbox('Show dataframe'):
     data
 
-topic_lst = y01_arr01.tolist()
+#topic_lst = y01_arr01.tolist()
 
-topic_dict = {}
-for idx, t in enumerate(topic_lst):
-    topic_dict[t] = idx
+#topic_dict = {}
+#for idx, t in enumerate(topic_lst):
+#    topic_dict[t] = idx
     
 #print(topic_dict)
 
@@ -54,7 +54,7 @@ left_column, right_column = st.columns(2)
 with left_column:
     selected_topics = st.multiselect(
         'Topic Name:',
-        topic_lst)
+        data['customer_topics'].unique())
 
 with right_column:
     selected_sources = st.multiselect(
@@ -65,11 +65,11 @@ random_state = 1699
 random.seed(random_state)
 
 if st.button('Find articles'):
-    rev_topic_dict = {v: k for k, v in topic_dict.items()}
-    selected_indices = [topic_dict[i] for i in selected_topics]
-    selected_topic_names = [rev_topic_dict[idx] for idx in selected_indices]
-    st.write(rev_topic_dict)
-    st.write(selected_topic_names)
+    #rev_topic_dict = {v: k for k, v in topic_dict.items()}
+    #selected_indices = [topic_dict[i] for i in selected_topics]
+    #selected_topic_names = [rev_topic_dict[idx] for idx in selected_indices]
+    #st.write(rev_topic_dict)
+    #st.write(selected_topic_names)
     
     # Convert the 'multilabel' column from string to list of integers
     #data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
@@ -77,9 +77,11 @@ if st.button('Find articles'):
     filtered_data = data.loc[data['sentiment_bert'] > .95]
     #filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
     topic_len = len(selected_topics)
-    st.write(topic_len)
+    #st.write(topic_len)
     source_len = len(selected_sources)
-    st.write(source_len)
+    #st.write(source_len)
+    for t in selected_topics:
+        st.write(t)
     if topic_len == 0 and source_len == 0:
         filtered_data = filtered_data.sample(10, random_state=random_state)
     elif topic_len > 0 and source_len == 0:
@@ -104,7 +106,7 @@ if st.button('Find articles'):
     fd_display_cols = ['url', 'title', 'source_name', 'publish_date',]
     filtered_data = filtered_data[fd_display_cols]
     filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
-    #st.write(filtered_data, unsafe_allow_html=True)
+
     st.data_editor(
     filtered_data,
     column_config={
