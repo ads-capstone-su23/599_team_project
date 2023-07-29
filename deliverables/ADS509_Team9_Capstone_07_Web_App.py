@@ -95,6 +95,7 @@ if st.button('Find articles'):
         filtered_data = filtered_data[fd_display_cols]
         filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                   ascending=False)
+        st.write(filtered_data)
 
     elif topic_len > 0 and source_len == 0:
         filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
@@ -109,6 +110,7 @@ if st.button('Find articles'):
             filtered_data = filtered_data[fd_display_cols]
             filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
+        st.write(filtered_data)
 
     elif topic_len == 0 and source_len > 0:
         filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
@@ -123,6 +125,7 @@ if st.button('Find articles'):
             filtered_data = filtered_data[fd_display_cols]
             filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
+        st.write(filtered_data)
 
     else:
         filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
@@ -139,6 +142,8 @@ if st.button('Find articles'):
             filtered_data = filtered_data[fd_display_cols]
             filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
+        st.write(filtered_data)
+        
     st.data_editor(
         filtered_data,
         column_config={
