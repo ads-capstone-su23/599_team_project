@@ -82,30 +82,47 @@ if st.button('Find articles'):
     #st.write(source_len)
     for t in selected_topics:
         st.write(t)
+    article_n = 3
+    article_nx2 = article_n * 2
     if topic_len == 0 and source_len == 0:
-        filtered_data = filtered_data.sample(10, random_state=random_state)
+        st.write(f'No search criteria entered: {article_nx2} randomly returned')
+        filtered_data = filtered_data.sample(article_nx2, random_state=random_state)
     elif topic_len > 0 and source_len == 0:
         filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
-        try:
-            filtered_data = filtered_data.sample(3*topic_len, random_state=random_state)
-        except:
-            filtered_data = filtered_data.sample(len(filtered_data), random_state=random_state)
+        for t in selected_topics:
+            st.write(f"Sample for '{t}': {article_n} randomly returned")
+            try:
+                filtered_data = filtered_data.sample(article_n,
+                                                     random_state=random_state)
+            except:
+                filtered_data = filtered_data.sample(len(filtered_data),
+                                                     random_state=random_state)
     elif topic_len == 0 and source_len > 0:
         filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
-        try:
-            filtered_data = filtered_data.sample(3*source_len, random_state=random_state)
-        except:
-            filtered_data = filtered_data.sample(len(filtered_data), random_state=random_state)
+        for s in selected_sources:
+            st.write(f"Sample for '{s}': {article_n} randomly returned")
+            try:
+                filtered_data = filtered_data.sample(article_n,
+                                                     random_state=random_state)
+            except:
+                filtered_data = filtered_data.sample(len(filtered_data),
+                                                     random_state=random_state)
     else:
         filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
         filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
-        try:
-            filtered_data = filtered_data.sample(3*topic_len, random_state=random_state)
-        except:
-            filtered_data = filtered_data.sample(len(filtered_data), random_state=random_state)
+        for s in selected_sources:
+            for t in selected_topics:
+                st.write(f"Sample for '{s}' and '{t}': {article_n-1} randomly returned")
+                try:
+                    filtered_data = filtered_data.sample(article_n-1,
+                                                         random_state=random_state)
+                except:
+                    filtered_data = filtered_data.sample(len(filtered_data),
+                                                         random_state=random_state)
     fd_display_cols = ['url', 'title', 'source_name', 'publish_date',]
     filtered_data = filtered_data[fd_display_cols]
-    filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'], ascending=False)
+    filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
+                                              ascending=False)
 
     st.data_editor(
     filtered_data,
