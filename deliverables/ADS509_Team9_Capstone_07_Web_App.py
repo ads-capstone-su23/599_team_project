@@ -50,11 +50,14 @@ st.header('Your Daily Retreat: Positive News App')
 if st.checkbox('Show dataframe'):
     data
 
+group_by_cols = ['source_name', 'customer_topics', 'text_id',]
 
-data1a = data.loc[data['sentiment_bert'] > .8]
+data1a = data.loc[data['sentiment_roberta'] > .8]
+data1a = data1a[group_by_cols]
 st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
 
-data1b = data.loc[data['sentiment_bert'] > thresh]
+data1b = data.loc[data['sentiment_roberta'] > thresh]
+data1b = data1b[group_by_cols]
 st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
 
 #topic_lst = y01_arr01.tolist()
@@ -87,7 +90,7 @@ if st.button('Find articles'):
     # Convert the 'multilabel' column from string to list of integers
     #data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
     
-    filtered_data = data.loc[data['sentiment_bert'] > thresh]
+    filtered_data = data.loc[data['sentiment_roberta'] > thresh]
     #filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
     topic_len = len(selected_topics)
     #st.write(topic_len)
