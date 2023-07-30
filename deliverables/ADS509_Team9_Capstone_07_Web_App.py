@@ -33,12 +33,13 @@ try:
     #data = pd.concat([data01, data02], ignore_index=True)
     data = pd.read_csv('capstone_master_topic_assignment_0729.csv')
     #y01_arr01 = np.load('data_tm_wo_sw_topic_lst_2023-07-28_10-51-08326790.npy')
-    y01_arr01 = np.load('capstone_master_customer_topics.npy')
+    #y01_arr01 = np.load('capstone_master_customer_topics.npy')
     # Load pre-processed sentiment
-    data_sa01 = pd.read_csv('data_sa_w_sw_half1_2023-07-28_12-11-33337653.csv')
-    data_sa02 = pd.read_csv('data_sa_w_sw_half2_2023-07-28_12-11-33337653.csv')
-    data_sa = pd.concat([data_sa01, data_sa02],
-                        ignore_index=True)
+    #data_sa01 = pd.read_csv('data_sa_w_sw_half1_2023-07-28_12-11-33337653.csv')
+    #data_sa02 = pd.read_csv('data_sa_w_sw_half2_2023-07-28_12-11-33337653.csv')
+    #data_sa = pd.concat([data_sa01, data_sa02],
+    #                    ignore_index=True)
+    data_sa = pd.read_csv('news-05.csv')
     data = pd.merge(data, data_sa, on='text_id')
     #st.write(data)
 except Exception as e:
