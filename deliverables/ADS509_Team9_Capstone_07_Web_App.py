@@ -54,10 +54,12 @@ group_by_cols = ['source_name', 'customer_topics', 'text_id',]
 
 data1a = data.loc[data['sentiment_roberta'] > .8]
 data1a = data1a[group_by_cols]
+st.write(len(data1a))
 st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
 
 data1b = data.loc[data['sentiment_roberta'] > thresh]
 data1b = data1b[group_by_cols]
+st.write(len(data1b))
 st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
 
 #topic_lst = y01_arr01.tolist()
