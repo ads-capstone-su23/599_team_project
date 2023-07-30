@@ -50,10 +50,10 @@ if st.checkbox('Show dataframe'):
     data
 
 
-data1a = data.loc[data['sentiment_bert'] > .8]
+data1a = data['source_name', 'customer_topics', 'text_id'].loc[data['sentiment_bert'] > .8]
 st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
 
-data1b = data.loc[data['sentiment_bert'] > thresh]
+data1b = data['source_name', 'customer_topics', 'text_id'].loc[data['sentiment_bert'] > thresh]
 st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
 
 #topic_lst = y01_arr01.tolist()
@@ -95,20 +95,20 @@ if st.button('Find articles'):
     #for t in selected_topics:
     #    st.write(t)
     
-    fd_display_cols = ['url', 'title', 'source_name', 'publish_date',]
+    fd_display_cols = ['customer_topics', 'source_name', 'url', 'title', 'publish_date',]
+    fd_sort = ['customer_topics', 'source_name', 'publish_date',]
 
     if topic_len == 0 and source_len == 0:
-        st.write(f'No search criteria entered: {article_nx2} randomly returned')
         filtered_data_s1 = filtered_data.sample(article_nx2,
-                                             random_state=random_state)
+                                                random_state=random_state)
         
         filtered_data_s1 = filtered_data_s1[fd_display_cols]
-        filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
-                                                    ascending=False)
+        filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
+                                                        ascending=False)
+        st.write(f'No search criteria entered: {len(filtered_data_s1)} randomly returned')
         #st.write(filtered_data01)
 
     elif topic_len > 0 and source_len == 0:
-        st.write(f"Sample for '{selected_topics}': {article_n * topic_len} randomly returned")
         #filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
         filtered_data_s1 = pd.DataFrame()
         for t in selected_topics:
@@ -123,32 +123,32 @@ if st.button('Find articles'):
                                           filtered_data_s2],
                                          ignore_index=True)
         filtered_data_s1 = filtered_data_s1[fd_display_cols]
-        filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
-                                                  ascending=False)
+        filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
+                                                        ascending=False)
+        st.write(f"Sample for '{selected_topics}': {len(filtered_data_s1)} randomly returned")
         #st.write(filtered_data02)
 
     elif topic_len == 0 and source_len > 0:
-        st.write(f"Sample for '{selected_sources}': {article_n * source_len} randomly returned")
         #filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
         filtered_data_s1 = pd.DataFrame()
         for s in selected_sources:
             filtered_data_s2 = filtered_data.loc[filtered_data['source_name'] == s]
             try:
                 filtered_data_s2 = filtered_data_s2.sample(article_n,
-                                                     random_state=random_state)
+                                                           random_state=random_state)
             except:
                 filtered_data_s2 = filtered_data_s2.sample(len(filtered_data_s2),
-                                                     random_state=random_state)
+                                                           random_state=random_state)
             filtered_data_s1 = pd.concat([filtered_data_s1,
                                           filtered_data_s2],
                                          ignore_index=True)
             filtered_data_s1 = filtered_data_s1[fd_display_cols]
-            filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
-                                                      ascending=False)
+            filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
+                                                            ascending=False)
+        st.write(f"Sample for '{selected_sources}': {len(filtered_data_s1)} randomly returned")
         #st.write(filtered_data03)
 
     else:
-        st.write(f"Sample for '{selected_sources}' and '{selected_topics}': {article_n * topic_len * source_len} randomly returned")
         #filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
         #filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
         filtered_data_s1 = pd.DataFrame()
@@ -157,16 +157,17 @@ if st.button('Find articles'):
                 filtered_data_s2 = filtered_data.loc[(filtered_data['source_name'] == s) & (filtered_data['customer_topics'] == t)]
                 try:
                     filtered_data_s2 = filtered_data_s2.sample(article_n,
-                                                         random_state=random_state)
+                                                               random_state=random_state)
                 except:
                     filtered_data_s2 = filtered_data_s2.sample(len(filtered_data_s2),
-                                                         random_state=random_state)
+                                                               random_state=random_state)
             filtered_data_s1 = pd.concat([filtered_data_s1,
                                           filtered_data_s2],
                                          ignore_index=True)
             filtered_data_s1 = filtered_data_s1[fd_display_cols]
-            filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
-                                                      ascending=False)
+            filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
+                                                            ascending=False)
+        st.write(f"Sample for '{selected_sources}' and '{selected_topics}': {len(filtered_data_s1)} randomly returned")
         #st.write(filtered_data04)
     st.data_editor(
         filtered_data_s1,
