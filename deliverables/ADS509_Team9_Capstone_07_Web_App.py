@@ -13,6 +13,13 @@ import os
 import random
 import ast  # Import the ast module for literal_eval
 
+random_state = 1699
+random.seed(random_state)
+thresh = .95
+
+article_n = 2
+article_nx2 = article_n * 3
+
 # Print current working directory (for debugging)
 os.getcwd()
 
@@ -30,7 +37,8 @@ try:
     # Load pre-processed sentiment
     data_sa01 = pd.read_csv('data_sa_w_sw_half1_2023-07-28_12-11-33337653.csv')
     data_sa02 = pd.read_csv('data_sa_w_sw_half2_2023-07-28_12-11-33337653.csv')
-    data_sa = pd.concat([data_sa01, data_sa02], ignore_index=True)
+    data_sa = pd.concat([data_sa01, data_sa02],
+                        ignore_index=True)
     data = pd.merge(data, data_sa, on='text_id')
     #st.write(data)
 except Exception as e:
@@ -40,6 +48,13 @@ st.header('Your Daily Retreat: Positive News App')
 
 if st.checkbox('Show dataframe'):
     data
+
+
+data1a = data.loc[data['sentiment_bert'] > .8]
+st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
+
+data1b = data.loc[data['sentiment_bert'] > thresh]
+st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
 
 #topic_lst = y01_arr01.tolist()
 
@@ -61,9 +76,6 @@ with right_column:
         'Source Name:',
         data['source_name'].unique())
 
-random_state = 1699
-random.seed(random_state)
-
 if st.button('Find articles'):
     #rev_topic_dict = {v: k for k, v in topic_dict.items()}
     #selected_indices = [topic_dict[i] for i in selected_topics]
@@ -74,7 +86,7 @@ if st.button('Find articles'):
     # Convert the 'multilabel' column from string to list of integers
     #data['multilabel'] = data['multilabel'].apply(ast.literal_eval)
     
-    filtered_data = data.loc[data['sentiment_bert'] > .95]
+    filtered_data = data.loc[data['sentiment_bert'] > thresh]
     #filtered_data = filtered_data[filtered_data['multilabel'].apply(lambda x: any(x[topic_dict[name]] == 1 for name in selected_topic_names))]
     topic_len = len(selected_topics)
     #st.write(topic_len)
@@ -83,88 +95,83 @@ if st.button('Find articles'):
     #for t in selected_topics:
     #    st.write(t)
     
-    article_n = 3
-    article_nx2 = article_n * 2
-
     fd_display_cols = ['url', 'title', 'source_name', 'publish_date',]
 
     if topic_len == 0 and source_len == 0:
         st.write(f'No search criteria entered: {article_nx2} randomly returned')
-        filtered_data = filtered_data.sample(article_nx2, random_state=random_state)
+        filtered_data_s1 = filtered_data.sample(article_nx2,
+                                             random_state=random_state)
         
-        filtered_data = filtered_data[fd_display_cols]
-        filtered_data01 = filtered_data.sort_values(by=['publish_date', 'source_name'],
-                                                  ascending=False)
-        st.write(filtered_data01)
-        st.data_editor(
-            filtered_data01,
-            column_config={
-                "url": st.column_config.LinkColumn("Article Links")
-            },
-            hide_index=True,)
+        filtered_data_s1 = filtered_data_s1[fd_display_cols]
+        filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
+                                                    ascending=False)
+        #st.write(filtered_data01)
 
     elif topic_len > 0 and source_len == 0:
-        filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
+        st.write(f"Sample for '{selected_topics}': {article_n * topic_len} randomly returned")
+        #filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
+        filtered_data_s1 = pd.DataFrame()
         for t in selected_topics:
-            st.write(f"Sample for '{t}': {article_n} randomly returned")
+            filtered_data_s2 = filtered_data.loc[filtered_data['customer_topics'] == t]
             try:
-                filtered_data = filtered_data.sample(article_n,
-                                                     random_state=random_state)
+                filtered_data_s2 = filtered_data_s2.sample(article_n,
+                                                           random_state=random_state)
             except:
-                filtered_data = filtered_data.sample(len(filtered_data),
-                                                     random_state=random_state)
-            filtered_data = filtered_data[fd_display_cols]
-            filtered_data02 = filtered_data.sort_values(by=['publish_date', 'source_name'],
-                                                      ascending=False)
-        st.write(filtered_data02)
-        st.data_editor(
-            filtered_data02,
-            column_config={
-                "url": st.column_config.LinkColumn("Article Links")
-            },
-            hide_index=True,)
+                filtered_data_s2 = filtered_data_s2.sample(len(filtered_data_s2),
+                                                           random_state=random_state)
+            filtered_data_s1 = pd.concat([filtered_data_s1,
+                                          filtered_data_s2],
+                                         ignore_index=True)
+        filtered_data_s1 = filtered_data_s1[fd_display_cols]
+        filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
+                                                  ascending=False)
+        #st.write(filtered_data02)
 
     elif topic_len == 0 and source_len > 0:
-        filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
+        st.write(f"Sample for '{selected_sources}': {article_n * source_len} randomly returned")
+        #filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
+        filtered_data_s1 = pd.DataFrame()
         for s in selected_sources:
-            st.write(f"Sample for '{s}': {article_n} randomly returned")
+            filtered_data_s2 = filtered_data.loc[filtered_data['source_name'] == s]
             try:
-                filtered_data = filtered_data.sample(article_n,
+                filtered_data_s2 = filtered_data_s2.sample(article_n,
                                                      random_state=random_state)
             except:
-                filtered_data = filtered_data.sample(len(filtered_data),
+                filtered_data_s2 = filtered_data_s2.sample(len(filtered_data_s2),
                                                      random_state=random_state)
-            filtered_data = filtered_data[fd_display_cols]
-            filtered_data03 = filtered_data.sort_values(by=['publish_date', 'source_name'],
+            filtered_data_s1 = pd.concat([filtered_data_s1,
+                                          filtered_data_s2],
+                                         ignore_index=True)
+            filtered_data_s1 = filtered_data_s1[fd_display_cols]
+            filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        st.write(filtered_data03)
-        st.data_editor(
-            filtered_data03,
-            column_config={
-                "url": st.column_config.LinkColumn("Article Links")
-            },
-            hide_index=True,)
+        #st.write(filtered_data03)
 
     else:
-        filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
-        filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
+        st.write(f"Sample for '{selected_sources}' and '{selected_topics}': {article_n * topic_len * source_len} randomly returned")
+        #filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
+        #filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
+        filtered_data_s1 = pd.DataFrame()
         for s in selected_sources:
             for t in selected_topics:
-                st.write(f"Sample for '{s}' and '{t}': {article_n-1} randomly returned")
+                filtered_data_s2 = filtered_data.loc[(filtered_data['source_name'] == s) & (filtered_data['customer_topics'] == t)]
                 try:
-                    filtered_data = filtered_data.sample(article_n-1,
+                    filtered_data_s2 = filtered_data_s2.sample(article_n,
                                                          random_state=random_state)
                 except:
-                    filtered_data = filtered_data.sample(len(filtered_data),
+                    filtered_data_s2 = filtered_data_s2.sample(len(filtered_data_s2),
                                                          random_state=random_state)
-            filtered_data = filtered_data[fd_display_cols]
-            filtered_data04 = filtered_data.sort_values(by=['publish_date', 'source_name'],
+            filtered_data_s1 = pd.concat([filtered_data_s1,
+                                          filtered_data_s2],
+                                         ignore_index=True)
+            filtered_data_s1 = filtered_data_s1[fd_display_cols]
+            filtered_data_s1 = filtered_data_s1.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        st.write(filtered_data04)
-        st.data_editor(
-            filtered_data04,
-            column_config={
-                "url": st.column_config.LinkColumn("Article Links")
-            },
-            hide_index=True,)
+        #st.write(filtered_data04)
+    st.data_editor(
+        filtered_data_s1,
+        column_config={
+            "url": st.column_config.LinkColumn("Article Links")
+        },
+        hide_index=True,)
         
