@@ -142,9 +142,9 @@ if st.button('Find articles'):
             filtered_data_s1 = pd.concat([filtered_data_s1,
                                           filtered_data_s2],
                                          ignore_index=True)
-            filtered_data_s1 = filtered_data_s1[fd_display_cols]
-            filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
-                                                            ascending=False)
+        filtered_data_s1 = filtered_data_s1[fd_display_cols]
+        filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
+                                                        ascending=False)
         st.write(f"Sample for '{selected_sources}': {len(filtered_data_s1)} randomly returned")
         #st.write(filtered_data03)
 
@@ -161,18 +161,19 @@ if st.button('Find articles'):
                 except:
                     filtered_data_s2 = filtered_data_s2.sample(len(filtered_data_s2),
                                                                random_state=random_state)
-            filtered_data_s1 = pd.concat([filtered_data_s1,
-                                          filtered_data_s2],
-                                         ignore_index=True)
-            filtered_data_s1 = filtered_data_s1[fd_display_cols]
-            filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
-                                                            ascending=False)
+                filtered_data_s1 = pd.concat([filtered_data_s1,
+                                              filtered_data_s2],
+                                             ignore_index=True)
+        filtered_data_s1 = filtered_data_s1[fd_display_cols]
+        filtered_data_s1 = filtered_data_s1.sort_values(by=fd_sort,
+                                                        ascending=False)
         st.write(f"Sample for '{selected_sources}' and '{selected_topics}': {len(filtered_data_s1)} randomly returned")
         #st.write(filtered_data04)
     st.data_editor(
         filtered_data_s1,
         column_config={
-            "url": st.column_config.LinkColumn("Article Links")
+            "url": st.column_config.LinkColumn("Article Links",
+                                              width='large')
         },
         hide_index=True,)
         
