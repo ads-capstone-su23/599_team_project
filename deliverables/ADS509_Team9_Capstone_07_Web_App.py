@@ -15,7 +15,7 @@ import ast  # Import the ast module for literal_eval
 
 random_state = 1699
 random.seed(random_state)
-thresh = .85
+thresh = .9
 
 article_n = 2
 article_nx2 = article_n * 3
