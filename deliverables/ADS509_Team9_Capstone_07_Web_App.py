@@ -95,7 +95,7 @@ if st.button('Find articles'):
         filtered_data = filtered_data[fd_display_cols]
         filtered_data01 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                   ascending=False)
-        #st.write(filtered_data)
+        st.write(filtered_data01)
         st.data_editor(
             filtered_data01,
             column_config={
@@ -116,7 +116,7 @@ if st.button('Find articles'):
             filtered_data = filtered_data[fd_display_cols]
             filtered_data02 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        #st.write(filtered_data)
+        st.write(filtered_data02)
         st.data_editor(
             filtered_data02,
             column_config={
@@ -137,7 +137,7 @@ if st.button('Find articles'):
             filtered_data = filtered_data[fd_display_cols]
             filtered_data03 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        #st.write(filtered_data)
+        st.write(filtered_data03)
         st.data_editor(
             filtered_data03,
             column_config={
@@ -160,7 +160,7 @@ if st.button('Find articles'):
             filtered_data = filtered_data[fd_display_cols]
             filtered_data04 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        #st.write(filtered_data)
+        st.write(filtered_data04)
         st.data_editor(
             filtered_data04,
             column_config={
