@@ -50,10 +50,10 @@ if st.checkbox('Show dataframe'):
     data
 
 
-data1a = data['source_name', 'customer_topics', 'text_id'].loc[data['sentiment_bert'] > .8]
+data1a = data.loc[data['sentiment_bert'] > .8]
 st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
 
-data1b = data['source_name', 'customer_topics', 'text_id'].loc[data['sentiment_bert'] > thresh]
+data1b = data.loc[data['sentiment_bert'] > thresh]
 st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
 
 #topic_lst = y01_arr01.tolist()
