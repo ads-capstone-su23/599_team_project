@@ -93,9 +93,15 @@ if st.button('Find articles'):
         filtered_data = filtered_data.sample(article_nx2, random_state=random_state)
         
         filtered_data = filtered_data[fd_display_cols]
-        filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
+        filtered_data01 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                   ascending=False)
-        st.write(filtered_data)
+        #st.write(filtered_data)
+        st.data_editor(
+            filtered_data01,
+            column_config={
+                "url": st.column_config.LinkColumn("Article Links")
+            },
+            hide_index=True,)
 
     elif topic_len > 0 and source_len == 0:
         filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
@@ -108,9 +114,15 @@ if st.button('Find articles'):
                 filtered_data = filtered_data.sample(len(filtered_data),
                                                      random_state=random_state)
             filtered_data = filtered_data[fd_display_cols]
-            filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
+            filtered_data02 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        st.write(filtered_data)
+        #st.write(filtered_data)
+        st.data_editor(
+            filtered_data02,
+            column_config={
+                "url": st.column_config.LinkColumn("Article Links")
+            },
+            hide_index=True,)
 
     elif topic_len == 0 and source_len > 0:
         filtered_data = filtered_data.loc[filtered_data['source_name'].isin(selected_sources)]
@@ -123,9 +135,15 @@ if st.button('Find articles'):
                 filtered_data = filtered_data.sample(len(filtered_data),
                                                      random_state=random_state)
             filtered_data = filtered_data[fd_display_cols]
-            filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
+            filtered_data03 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        st.write(filtered_data)
+        #st.write(filtered_data)
+        st.data_editor(
+            filtered_data03,
+            column_config={
+                "url": st.column_config.LinkColumn("Article Links")
+            },
+            hide_index=True,)
 
     else:
         filtered_data = filtered_data.loc[filtered_data['customer_topics'].isin(selected_topics)]
@@ -140,13 +158,13 @@ if st.button('Find articles'):
                     filtered_data = filtered_data.sample(len(filtered_data),
                                                          random_state=random_state)
             filtered_data = filtered_data[fd_display_cols]
-            filtered_data = filtered_data.sort_values(by=['publish_date', 'source_name'],
+            filtered_data04 = filtered_data.sort_values(by=['publish_date', 'source_name'],
                                                       ascending=False)
-        st.write(filtered_data)
+        #st.write(filtered_data)
+        st.data_editor(
+            filtered_data04,
+            column_config={
+                "url": st.column_config.LinkColumn("Article Links")
+            },
+            hide_index=True,)
         
-    st.data_editor(
-        filtered_data,
-        column_config={
-            "url": st.column_config.LinkColumn("Article Links")
-        },
-        hide_index=True,)
