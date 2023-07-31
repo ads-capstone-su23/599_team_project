@@ -54,13 +54,13 @@ group_by_cols = ['source_name', 'customer_topics', 'text_id',]
 
 data1a = data.loc[data['sentiment_roberta'] > .8]
 data1a = data1a[group_by_cols]
-st.write(len(data1a))
-st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
+#st.write(len(data1a))
+#st.write(data1a.groupby(by=['source_name', 'customer_topics']).count())
 
 data1b = data.loc[data['sentiment_roberta'] > thresh]
 data1b = data1b[group_by_cols]
-st.write(len(data1b))
-st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
+#st.write(len(data1b))
+#st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
 
 #topic_lst = y01_arr01.tolist()
 
@@ -70,7 +70,7 @@ st.write(data1b.groupby(by=['source_name', 'customer_topics']).count())
     
 #print(topic_dict)
 
-st.subheader("Please select Topic(s) and/or Source(s)!")
+st.subheader('Please select Topic(s) and/or Source(s)!')
 left_column, right_column = st.columns(2)
 with left_column:
     selected_topics = st.multiselect(
@@ -178,8 +178,16 @@ if st.button('Find articles'):
     st.data_editor(
         filtered_data_s1,
         column_config={
-            "url": st.column_config.LinkColumn("Article Links",
-                                              width='large')
+            'url': st.column_config.LinkColumn('Article Links',
+                                               width='large'),
+            'customer_topics': st.column_config.TextColumn('Topics',
+                                                           width='small'),
+            'source_name': st.column_config.TextColumn('Topics',
+                                                       width='small'),
+            'title': st.column_config.TextColumn('Topics',
+                                                 width='large'),
+            'publish_date': st.column_config.DateColumn('Topics',
+                                                        width='small'),
         },
         hide_index=True,)
         
