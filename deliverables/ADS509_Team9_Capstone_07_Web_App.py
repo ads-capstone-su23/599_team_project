@@ -178,15 +178,15 @@ if st.button('Find articles'):
     st.data_editor(
         filtered_data_s1,
         column_config={
-            'url': st.column_config.LinkColumn('Article Links',
+            'url': st.column_config.LinkColumn('Article Link',
                                                width='large'),
-            'customer_topics': st.column_config.TextColumn('Topics',
+            'customer_topics': st.column_config.TextColumn('Topic',
                                                            width='small'),
-            'source_name': st.column_config.TextColumn('Topics',
+            'source_name': st.column_config.TextColumn('Source',
                                                        width='small'),
-            'title': st.column_config.TextColumn('Topics',
+            'title': st.column_config.TextColumn('Article Title',
                                                  width='large'),
-            'publish_date': st.column_config.TextColumn('Topics',
+            'publish_date': st.column_config.TextColumn('Publish Date',
                                                         width='small'),
         },
         hide_index=True,)
