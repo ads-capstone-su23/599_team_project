@@ -186,7 +186,7 @@ if st.button('Find articles'):
                                                        width='small'),
             'title': st.column_config.TextColumn('Topics',
                                                  width='large'),
-            'publish_date': st.column_config.DateColumn('Topics',
+            'publish_date': st.column_config.TextColumn('Topics',
                                                         width='small'),
         },
         hide_index=True,)
