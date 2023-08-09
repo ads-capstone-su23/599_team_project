@@ -4,7 +4,6 @@
 *.zip
 archives/*
 deliverables/archives/*
-deliverables/experimental/*
 data/archives/*
 data_large/*
 images/archives/*
