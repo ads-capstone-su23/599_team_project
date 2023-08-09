@@ -5,77 +5,60 @@ Daily Retreat: Using Sentiment Analysis to Find, Personalize and Share Positive 
 #### -- Project Status: [Active]
 
 ## Goals
-* Develop a pipeline to extract positive/uplifting news articles from usual news sources like CNN, Fox, MSN, New York Times, etc.
+Develop a pipeline to extract positive/uplifting news articles from usual news sources like CNN, Fox, MSN, New York Times, etc.
 
 ## Team Members
 * Azucena Faus
 * Dave Friesen
 * Aaron Carr
 
-
 ## Methods Used
 * Data Collection: NewsAPI/Webscraping
 * Exploratory data analysis (EDA)
 * Text data preprocessing (e.g., normalization, tokenization)
 * Term frequency-inverse document frequency (TF-IDF) vectorization
-* Sentiment Analysis
 * Topic Modeling
+* Classification
+* Sentiment Analysis
+* Transfer learning
 * Text classification
-  
 
 ## Overview
-
 In today's fast-paced digital world, the constant influx of news – especially news with highly negative content – can be distracting and even detrimental to mental health (Blades, 2021). Simultaneously, manually sifting and curating positive or even "silver-lining" news stories requires intentionality and is tedious and time-consuming. As many news consumers may also view some negative news to be necessary - for example, "hard" information like timely, impactful, and current events is reality - many sources will continue to provide hard news of all valances, positive or negative. However, herein lies an opportunity to curate positive and personalized news that meets (exceeds) consumer topic and timing preferences.
 
 
 ## Selected Dataset:
-
 NewsAPI content from news sources considered popular and/or mainstream in the U.S.
 
 ## Description of Dataset (data source, number of variables, size of dataset, etc.): 
-
-Similar to the text mining project developed by Carr et al. (2023) for ADS-509, Team 9 will be using the NewsAPI REST Application Programming Interface (API) to access news content from a variety of “current and historic news articles published by over 80,000 worldwide sources” (NewsAPI, n.d.). However, the content and source focus has changed from collecting content from politically biased sources for bias classification to the most popular and/or mainstream sources toward a different problem statement.
-
-We will use two identified references to generate a list of potential source content, to obtain content that will appeal to the largest segmentation of U.S. news readers interested in highly positive articles (Shearer & Mitchell, 2021; Statista, n.d.). We will be using the paid version of the API, which potentially has pre-scraped content from each article; for any instance where the content is not readily available, scraping will be done to close the gaps.
-
+Similar to the text mining project developed by Carr et al. (2023) for ADS-509, Team 9 will be using the NewsAPI REST Application Programming Interface (API) to access news content from a variety of “current and historic news articles published by over 80,000 worldwide sources” (NewsAPI, n.d.). However, the content and source focus has changed from collecting content from politically biased sources for bias classification to the most popular and/or mainstream sources toward a different problem statement. \
+We will use two identified references to generate a list of potential source content, to obtain content that will appeal to the largest segmentation of U.S. news readers interested in highly positive articles (Shearer & Mitchell, 2021; Statista, n.d.). We will be using the paid version of the API, which potentially has pre-scraped content from each article; for any instance where the content is not readily available, scraping will be done to close the gaps. \
 The NewsAPI returns a JSON object with multiple items. This project will mainly focus on collecting three features for this project, including `content` (which is unstructured), `URL,` and `category,` along with an engineered feature for storage of data we must scrape ourselves. While we do not have a target number of articles, we will collect as many as possible in the allowable time frame. *Note*: The paid API version allows for 250,000 requests per month, so the main limitations will be based on how much content must be scraped manually.
 
-
 ## Purpose and Expected Value
-
-The present study aims to demonstrate the automated delivery of positive news highlights with optional topic personalization. This service will be accomplished through applied Natural Language Processing (NLP) and a prototype, leveraging advanced language modeling techniques across a wide corpus of news media sources.
-
+The present study aims to demonstrate the automated delivery of positive news highlights with optional topic personalization. This service will be accomplished through applied Natural Language Processing (NLP) and a prototype, leveraging advanced language modeling techniques across a wide corpus of news media sources. \
 "So-called good news outlets" report "surprisingly large audiences and increasing engagement" (McIntyre & Gibson, 2016). The authors note that trends suggest media executives are seeking to increase their audience by emphasizing positives in the news (McIntyre & Gibson, 2016). While this opportunity may be niche relative to much current-event hard news, this study and prototype aim to capitalize on trends in upbeat, topical news delivery.
 
 ## Literature Review
-
-There is a general consensus that news consumption is detrimental to the physical and mental wellness of readers (McLaughlin et al., 2022). This is due to the negative aspects of news media that makes it lucrative and "click-able," but damaging to individuals. 
-
-There is also a growing trend in people that seek out positive news stories (McIntyre & Gibson, 2016). The article by McIntyre and Gibson mention how more popular news sources are encouraging writers to focus on the "silver lining" to a news story, in order to promote and access this growing trend in reader preferences.
-
-As to the topic of news curation, there have been systems developed using NLP methods like topic-modeling and sentiment analysis, that curate the news based on topic, as in COVID-19, or topics selected by a user (Surahman et al., 2022). However, there is currently no system in place that seeks to curate news from reliable already existing news sources, to focus on positive stories.
-
+There is a general consensus that news consumption is detrimental to the physical and mental wellness of readers (McLaughlin et al., 2022). This is due to the negative aspects of news media that makes it lucrative and "click-able," but damaging to individuals. \
+There is also a growing trend in people that seek out positive news stories (McIntyre & Gibson, 2016). The article by McIntyre and Gibson mention how more popular news sources are encouraging writers to focus on the "silver lining" to a news story, in order to promote and access this growing trend in reader preferences. \
+As to the topic of news curation, there have been systems developed using NLP methods like topic-modeling and sentiment analysis, that curate the news based on topic, as in COVID-19, or topics selected by a user (Surahman et al., 2022). However, there is currently no system in place that seeks to curate news from reliable already existing news sources, to focus on positive stories. \
 Using similar methodologies to topical news curation, this project seeks to remedy the maladies of constant negative newsfeeds and provide positive news content for a growing number of individuals that seek a retreat from usual news stories.
 
 ## Motivation
-
 We are motivated by an interest in automated information curation - in this example, based on news valance and corpora - and by the accelerating potential and opportunities in Natural Language Processing (even if only semantic search, not generative). Some estimate as much as 90% of the Internet-enabled world's data is unstructured, which, combined with language model capability growth, emphasizes a significant opportunity to “unlock” information and knowledge (MIT Sloan School of Management, 2022). This project allows us to step into the accelerating NLP and language model opportunity.
 
 ## Working Hypothesis 
-
-The existence of objective idealism has been debated since the time of Plato (Trodden, 2018). However, today it is generally accepted that the manifestation of such objectivity remains very theoretical and that when attempting to examine the actual output of human thought, there are naturally elements of subjectivity. Beginning in the 1960s, a definition and attempted application of objectivity in terms of news reporting was related to maintaining journalistic professional judgments, while at the same time eliminating any of the reporters’ personal opinions (Pressman, 2018). Consequently, by this assumption, the application of this type of objectivity will still result in specific human sentiments–specifically, articles will  “contain information about emotion, mood, or feelings” of the reporter (Albrecht et al., 2021).
-
+The existence of objective idealism has been debated since the time of Plato (Trodden, 2018). However, today it is generally accepted that the manifestation of such objectivity remains very theoretical and that when attempting to examine the actual output of human thought, there are naturally elements of subjectivity. Beginning in the 1960s, a definition and attempted application of objectivity in terms of news reporting was related to maintaining journalistic professional judgments, while at the same time eliminating any of the reporters’ personal opinions (Pressman, 2018). Consequently, by this assumption, the application of this type of objectivity will still result in specific human sentiments–specifically, articles will  “contain information about emotion, mood, or feelings” of the reporter (Albrecht et al., 2021). \
 Based on this, the project’s working hypothesis is that sentiment analysis (SA) techniques can be implemented to clearly determine the overall sentiment of articles relative to concepts covered, specifically in terms of positive and negative emotions conveyed. Moreover, it is hypothesized that the signals achievable for positive sentiment (in terms of sentiment score) will represent relatively strong indications of which articles reflect reporting of uplifting (or “feel-good”) content.
 
 ## Data Science Objectives
-
 In order to address the stated business problem, several data science objectives have been identified in order to ultimately develop a highly effective SA machine learning (ML) model that can be applied to collected news source articles.
 1. Build an automated, systematic, and deployment-ready pipeline for the ingestion, preprocessing, modeling, and evaluation of text-based data.
 2. Apply topic modeling techniques to produce class labels for specific documents (articles) within the dataset.
 3. Use SA ML modeling to output a “positivity” score for every article.
 
 ## Planned Methodology 
-
 To achieve the business and data science objectives, the following methods will be used:
 1. Collect data, via API call (supplemented with web scraping, as needed).
 2. Perform Exploratory Data Analyses (EDA) to investigate underlying structures of the data, which will include generation of descriptive statistics and visualizations (e.g., word count box plots, histograms, word clouds, etc.).
@@ -87,23 +70,14 @@ To achieve the business and data science objectives, the following methods will 
 8. Rate sources based on proportion of positive and negative content.
 
 ## Real-World Impact and Planned Deliverables
-
-The real-world impact of this study involves going against the grain of usual recommender systems that strengthen the proliferation of negative or scandalous news stories to users. These systems leave their readers at risk of forming a “maladaptive relationship with the news,” that results in mental and physical ills for those individuals (McLaughlin et al., 2022). This solution is a balanced departure from the addiction to negative news exposure and the removal of news altogether (which has its own negative outcomes for society). 
-
-The final deliverable will be the first step towards implementing a “mental health” plug-in that will curate a customer’s newsfeed with positive and uplifting news. This will help increase faith in humanity for these users while decreasing anxiety (Suttie, 2018). 
-
+The real-world impact of this study involves going against the grain of usual recommender systems that strengthen the proliferation of negative or scandalous news stories to users. These systems leave their readers at risk of forming a “maladaptive relationship with the news,” that results in mental and physical ills for those individuals (McLaughlin et al., 2022). This solution is a balanced departure from the addiction to negative news exposure and the removal of news altogether (which has its own negative outcomes for society). \
+The final deliverable will be the first step towards implementing a “mental health” plug-in that will curate a customer’s newsfeed with positive and uplifting news. This will help increase faith in humanity for these users while decreasing anxiety (Suttie, 2018). \
 Specifically, the deliverable will be a pipeline that will provide positive news for the day in real-time.
 
-## Additional Comments / Roadblocks
-
-Some possible roadblocks:
-There is the risk of a limited dataset in terms of size; especially if there is a need to webscrape a great number of news articles due to the NewsAPI content limitations.
-This dataset might be limited in diversity, if there is a search criteria requirement; such search keywords will limit the types of articles that will be analyzed.
-
-
-
-
-
+## Preprocessed Data:
+For the purpose of reproducibility, the preprocessed dataset (*N* = 36,405) has been broken up into chunks under 100 MB. To perform EDA and modeling in Python, they can be read into a pandas dataframe individually, then concatenated together.
+[Preprocessed data with stop words](data/preprocessed_recreation/with_stop_words)
+[Preprocessed data without stop words](data/preprocessed_recreation/without_stop_words)
 
 ## References
 * Albrecht, J., Ramachandran, S., & Winkler, C. (2021). Blueprints for text analytics using Python: Machine learning-based solutions for common real world (NLP) applications.     O’Reilly.
