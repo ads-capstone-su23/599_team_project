@@ -1,10 +1,10 @@
 USE 599_capstone;
 
-/*DROP TABLE IF EXISTS nar_temp;*/
-/*DROP TABLE IF EXISTS news_articles;*/
+DROP TABLE IF EXISTS nar_temp;
+DROP TABLE IF EXISTS news_articles_rvsd;
 
 /**/
-CREATE TABLE news_articles
+CREATE TABLE news_articles_rvsd
 (
 text_id INT UNSIGNED AUTO_INCREMENT,
 source_name VARCHAR(1000),
@@ -16,7 +16,7 @@ article_text LONGTEXT,
 content LONGTEXT,
 CONSTRAINT pk_text_id PRIMARY KEY (text_id)
 );
-DESC news_articles;
+DESC news_articles_rvsd;
 
 /**/
 CREATE TABLE nar_temp
