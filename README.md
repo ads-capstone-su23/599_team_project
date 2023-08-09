@@ -75,8 +75,8 @@ The final deliverable will be the first step towards implementing a “mental he
 Specifically, the deliverable will be a pipeline that will provide positive news for the day in real-time.
 
 ## Preprocessed Data:
-For the purpose of reproducibility, the preprocessed dataset (*N* = 36,405) has been broken up into chunks under 100 MB. To perform EDA and modeling in Python, they can be read into a pandas dataframe individually, then concatenated together.
-[Preprocessed data with stop words](data/preprocessed_recreation/with_stop_words)
+For the purpose of reproducibility, the preprocessed dataset (*N* = 36,405) has been broken up into chunks under 100 MB. To perform EDA and modeling in Python, they can be read into a pandas dataframe individually, then concatenated together. \
+[Preprocessed data with stop words](data/preprocessed_recreation/with_stop_words) \
 [Preprocessed data without stop words](data/preprocessed_recreation/without_stop_words)
 
 ## References
