@@ -26,7 +26,6 @@ Develop a pipeline to extract positive/uplifting news articles from usual news s
 ## Overview
 In today's fast-paced digital world, the constant influx of news – especially news with highly negative content – can be distracting and even detrimental to mental health (Blades, 2021). Simultaneously, manually sifting and curating positive or even "silver-lining" news stories requires intentionality and is tedious and time-consuming. As many news consumers may also view some negative news to be necessary - for example, "hard" information like timely, impactful, and current events is reality - many sources will continue to provide hard news of all valances, positive or negative. However, herein lies an opportunity to curate positive and personalized news that meets (exceeds) consumer topic and timing preferences.
 
-
 ## Selected Dataset:
 NewsAPI content from news sources considered popular and/or mainstream in the U.S.
 
