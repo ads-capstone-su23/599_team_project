@@ -26,7 +26,6 @@ Develop a pipeline to extract positive/uplifting news articles from usual news s
 ## Overview
 In today's fast-paced digital world, the constant influx of news – especially news with highly negative content – can be distracting and even detrimental to mental health (Blades, 2021). Simultaneously, manually sifting and curating positive or even "silver-lining" news stories requires intentionality and is tedious and time-consuming. As many news consumers may also view some negative news to be necessary - for example, "hard" information like timely, impactful, and current events is reality - many sources will continue to provide hard news of all valances, positive or negative. However, herein lies an opportunity to curate positive and personalized news that meets (exceeds) consumer topic and timing preferences.
 
-
 ## Selected Dataset:
 NewsAPI content from news sources considered popular and/or mainstream in the U.S.
 
@@ -74,10 +73,18 @@ The real-world impact of this study involves going against the grain of usual re
 The final deliverable will be the first step towards implementing a “mental health” plug-in that will curate a customer’s newsfeed with positive and uplifting news. This will help increase faith in humanity for these users while decreasing anxiety (Suttie, 2018). \
 Specifically, the deliverable will be a pipeline that will provide positive news for the day in real-time.
 
-## Preprocessed Data:
-For the purpose of reproducibility, the preprocessed dataset (*N* = 36,405) has been broken up into chunks under 100 MB. To perform EDA and modeling in Python, they can be read into a pandas dataframe individually, then concatenated together. \
+## Getting Started From Scratch (by creating a MySQL schema)
+1. Open MySQL Workbench.
+2. Create a new schema called "599_capstone".
+3. Open the MySQL file: [MySQL Table setup](deliverables/01tables_setup.sql).
+4. Run the entire script to create the two news_articles tables.
+5. Begin with [ADS509_Team9_Capstone_01_API_Final.ipynb](deliverables/ADS509_Team9_Capstone_01_API_Final.ipynb)
+
+## Alternatively, Reproduce Results Using Preprocessed Data:
+The preprocessed dataset (*N* = 36,405) has been broken up into chunks (CSV files) under 100 MB. To perform EDA and modeling in Python, they can be read into a pandas dataframe individually, then concatenated together. \
 [Preprocessed data with stop words](data/preprocessed_recreation/with_stop_words) \
-[Preprocessed data without stop words](data/preprocessed_recreation/without_stop_words)
+[Preprocessed data without stop words](data/preprocessed_recreation/without_stop_words) \
+In this case, begin with [ADS509_Team9_Capstone_04_EDA_TM_Final.ipynb](deliverables/ADS509_Team9_Capstone_04_EDA_TM_Final.ipynb)
 
 ## References
 * Albrecht, J., Ramachandran, S., & Winkler, C. (2021). Blueprints for text analytics using Python: Machine learning-based solutions for common real world (NLP) applications.     O’Reilly.

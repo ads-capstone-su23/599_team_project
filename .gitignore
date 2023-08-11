@@ -5,7 +5,8 @@
 archives/*
 deliverables/archives/*
 data/archives/*
-data_large/*
+data_large/archives/*
+data_large/*.csv
 images/archives/*
 ref_docs/archives/*
 

@@ -1,3 +1,7 @@
+# Daily Retreat: Using Sentiment Analysis to Find, Personalize,
+# and Share Positive News from Popular Online Sources
+# Aaron Carr, Azucena Faus, and Dave Friesen - ADS-599-01-SU23
+
 '''Streamlit citation:
 https://towardsdatascience.com/how-to-deploy-machine-learning-models-601f8c13ff45
 Filter citation:
