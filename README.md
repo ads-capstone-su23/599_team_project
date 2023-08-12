@@ -73,12 +73,12 @@ The real-world impact of this study involves going against the grain of usual re
 The final deliverable will be the first step towards implementing a “mental health” plug-in that will curate a customer’s newsfeed with positive and uplifting news. This will help increase faith in humanity for these users while decreasing anxiety (Suttie, 2018). \
 Specifically, the deliverable will be a pipeline that will provide positive news for the day in real-time.
 
-## Getting Started From Scratch (by creating a MySQL schema)
+## Getting Started from Scratch (by creating a MySQL schema)
 1. Open MySQL Workbench.
 2. Create a new schema called "599_capstone".
 3. Open the MySQL file: [MySQL Table setup](deliverables/01tables_setup.sql).
 4. Run the entire script to create the two news_articles tables.
-5. Begin with [ADS509_Team9_Capstone_01_API_Final.ipynb](deliverables/ADS509_Team9_Capstone_01_API_Final.ipynb)
+5. Begin with [ADS509_Team9_Capstone_01_API_Final.ipynb](deliverables/ADS509_Team9_Capstone_01_API_Final.ipynb).
 
 ## Alternatively, Reproduce Results Using Preprocessed Data:
 The preprocessed dataset (*N* = 36,405) has been broken up into chunks (CSV files) under 100 MB. To perform EDA and modeling in Python, they can be read into a pandas dataframe individually, then concatenated together. \

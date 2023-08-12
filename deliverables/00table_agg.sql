@@ -77,3 +77,7 @@ ORDER BY CAST(LEFT(publish_date, 10) AS DATE), source_name;
 
 SELECT * FROM news_articles_rvsd
 WHERE source_name = 'msnNOW';
+
+SELECT text_id, source_name, author, article_text FROM news_articles_rvsd
+WHERE article_text IS NOT NULL
+and LENGTH(article_text) BETWEEN 500 AND 1000;
