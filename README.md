@@ -5,7 +5,7 @@ Daily Retreat: Using Sentiment Analysis to Find, Personalize and Share Positive 
 #### -- Project Status: [Active]
 
 ## Goals
-Develop a pipeline to extract positive/uplifting news articles from usual news sources like CNN, Fox, MSN, New York Times, etc.
+Develop a pipeline to extract positive/uplifting news articles from prominent news sources like CNN, Fox, MSN, New York Times, and others.
 
 ## Team Members
 * Azucena Faus
